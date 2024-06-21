@@ -4,7 +4,7 @@ import { HomeIcon } from "@/assets/side-menu/home-icon";
 import { NotificationIcon } from "@/assets/side-menu/notification-icon";
 import { BooksIcon } from "@/assets/side-menu/books-icon";
 import { SettingsIcon } from "@/assets/side-menu/settings-icon";
-import { ArrowIcon } from "@/assets/side-menu/arrow";
+import { ArrowIcon } from "@/assets/general-svg/arrow";
 import { useState } from "react";
 
 export function SideMenu() {

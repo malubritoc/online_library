@@ -45,7 +45,7 @@ export function SignInForm() {
       </div>
       <button
         type="submit"
-        className="w-full bg-green-main rounded-[8px] p-2 text-white"
+        className="w-full bg-green-main hover:bg-[#033e3d] rounded-[8px] p-2 text-white"
       >
         Entrar
       </button>
