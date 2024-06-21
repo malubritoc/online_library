@@ -56,7 +56,7 @@ export function SideMenu() {
                 data-isOpen={allBooksIsOpen}
                 className="text-sm font-bold data-[isOpen=true]:text-yellow-main"
               >
-                Todos os Livros
+                Todos Livros
               </h3>
             </div>
             <ArrowIcon
