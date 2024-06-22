@@ -1,6 +1,6 @@
 import { HomeIcon } from "@/assets/side-menu/home-icon";
 import * as Dialog from "@radix-ui/react-dialog";
-import { CartDialog } from "../dialog/cartDialog";
+import { CartDialog } from "../dialogs/cartDialog";
 
 export function Header() {
   return (

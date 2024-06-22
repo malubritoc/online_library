@@ -31,11 +31,11 @@ export function SideMenu() {
   console.log(allBooksIsOpen);
 
   return (
-    <div className="min-w-[241px] flex flex-col gap-6 px-6">
+    <div className="min-w-[241px] flex flex-col gap-6">
       <div className="p-4 border-b-[1px] border-b-[#E1E6EE]">
         <Image src={logo} alt="Logo TheLibrary" />
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 pr-4">
         <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
           <HomeIcon />
           <h3 className="text-sm font-bold">Início</h3>
@@ -61,7 +61,7 @@ export function SideMenu() {
             </div>
             <ArrowIcon
               className={`transition-transform duration-300 ${
-                allBooksIsOpen ? "rotate-180" : ""
+                allBooksIsOpen ? "rotate-90" : ""
               }`}
             />
           </div>
