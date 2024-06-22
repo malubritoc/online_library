@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useState } from "react";
+import Link from "next/link";
 
 export function CategoriesFilter({
   starterCategory,
@@ -33,6 +34,23 @@ export function CategoriesFilter({
     return 0;
   }
 
+  function getParamName(name: string) {
+    switch (name) {
+      case "Todos":
+        return "todos";
+      case "Bíblias":
+        return "biblias";
+      case "Teologia":
+        return "teologia";
+      case "Filosofia":
+        return "filosofia";
+      case "Ciência":
+        return "ciencia";
+      case "Outras...":
+        return "outros";
+    }
+  }
+
   const [activeCategory, setActiveCategory] = useState(getInitialIdx());
 
   console.log;
@@ -41,17 +59,19 @@ export function CategoriesFilter({
     <div className="w-full flex justify-center items-center gap-[10px] ">
       {categories.map((category, idx) => {
         return (
-          <div
-            onClick={() => setActiveCategory(idx)}
-            data-active={activeCategory == idx}
-            className={clsx(
-              "px-3 py-1 rounded-full",
-              "bg-gray-bg-button data-[active=true]:bg-yellow-main cursor-pointer",
-              "font-medium text-gray-text-button data-[active=true]:text-white"
-            )}
-          >
-            {category.name}
-          </div>
+          <Link href={`/categoria/${getParamName(category.name)}`}>
+            <div
+              onClick={() => setActiveCategory(idx)}
+              data-active={activeCategory == idx}
+              className={clsx(
+                "px-3 py-1 rounded-full",
+                "bg-gray-bg-button data-[active=true]:bg-yellow-main cursor-pointer",
+                "font-medium text-gray-text-button data-[active=true]:text-white"
+              )}
+            >
+              {category.name}
+            </div>
+          </Link>
         );
       })}
     </div>

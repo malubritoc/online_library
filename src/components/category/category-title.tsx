@@ -1,6 +1,8 @@
 export function CategoryTitle({ title }: { title: string }) {
   function getTitle(title: string) {
     switch (title) {
+      case "todos":
+        return "Todos";
       case "biblias":
         return "Bíblias";
       case "teologia":
