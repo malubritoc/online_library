@@ -15,74 +15,82 @@ export function SideMenu() {
   const sub_categories = [
     {
       name: "Livros",
-      url: "/books",
+      url: "/categoria/todos",
     },
     {
       name: "Promoções",
-      url: "/sales",
+      url: "/inicio",
     },
     {
       name: "Acessórios",
-      url: "/accessories",
+      url: "/inicio",
     },
     {
       name: "Canecas",
-      url: "/mugs",
+      url: "/inicio",
     },
   ];
 
   console.log(allBooksIsOpen);
 
   return (
-    <div className="min-w-[241px] flex flex-col gap-6">
-      <Link href="/home">
-        <div className="p-4 border-b-[1px] border-b-[#E1E6EE] cursor-pointer">
-          <Image src={logo} alt="Logo TheLibrary" />
-        </div>
-      </Link>
-      <div className="flex flex-col gap-1 pr-4">
-        <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
-          <HomeIcon />
-          <h3 className="text-sm font-bold">Início</h3>
-        </div>
-        <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
-          <NotificationIcon />
-          <h3 className="text-sm font-bold">Notificações</h3>
-        </div>
-        <div
-          onClick={() => setAllBooksIsOpen(!allBooksIsOpen)}
-          data-isOpen={allBooksIsOpen}
-          className={`h-[36px] data-[isOpen=true]:h-[172px] flex flex-col gap-2 overflow-hidden cursor-pointer [&>svg]:data-[isOpen=true]:rotate-180 transition-all`}
-        >
-          <div className="w-full flex items-center justify-between pl-4 pr-2 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
-            <div className="flex gap-[6px] items-center">
-              <BooksIcon />
-              <h3
-                data-isOpen={allBooksIsOpen}
-                className="text-sm font-bold data-[isOpen=true]:text-yellow-main"
-              >
-                Todos Livros
-              </h3>
+    <div className="min-w-[241px]">
+      <div className="fixed min-w-[241px] h-screen flex flex-col gap-6 bg-white">
+        <Link href="/inicio">
+          <div className="p-4 border-b-[1px] border-b-[#E1E6EE] cursor-pointer">
+            <Image src={logo} alt="Logo TheLibrary" />
+          </div>
+        </Link>
+        <div className="flex flex-col gap-1 pr-4">
+          <Link href={"/inicio"}>
+            <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
+              <HomeIcon />
+              <h3 className="text-sm font-bold">Início</h3>
             </div>
-            <ArrowIcon
-              className={`transition-transform duration-300 ${
-                allBooksIsOpen ? "rotate-90" : ""
-              }`}
-            />
+          </Link>
+          <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
+            <NotificationIcon />
+            <h3 className="text-sm font-bold">Notificações</h3>
           </div>
-          <div className="ml-1 pl-4 flex flex-col gap-1">
-            {sub_categories.map((category) => {
-              return (
-                <p className="py-1 pl-5 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main text-sm">
-                  {category.name}
-                </p>
-              );
-            })}
+          <div
+            data-isOpen={allBooksIsOpen}
+            className={`h-[36px] data-[isOpen=true]:h-[172px] flex flex-col gap-2 overflow-hidden cursor-pointer [&>svg]:data-[isOpen=true]:rotate-180 transition-all`}
+          >
+            <div
+              onClick={() => setAllBooksIsOpen(!allBooksIsOpen)}
+              className="w-full flex items-center justify-between pl-4 pr-2 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main"
+            >
+              <div className="flex gap-[6px] items-center">
+                <BooksIcon />
+                <h3
+                  data-isOpen={allBooksIsOpen}
+                  className="text-sm font-bold data-[isOpen=true]:text-yellow-main"
+                >
+                  Todos Livros
+                </h3>
+              </div>
+              <ArrowIcon
+                className={`transition-transform duration-300 ${
+                  allBooksIsOpen ? "rotate-90" : ""
+                }`}
+              />
+            </div>
+            <div className="ml-1 pl-4 flex flex-col gap-1">
+              {sub_categories.map((category) => {
+                return (
+                  <Link href={category.url} key={category.name}>
+                    <p className="py-1 pl-5 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main text-sm">
+                      {category.name}
+                    </p>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
-        <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
-          <SettingsIcon />
-          <h3 className="text-sm font-bold">Configurações</h3>
+          <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
+            <SettingsIcon />
+            <h3 className="text-sm font-bold">Configurações</h3>
+          </div>
         </div>
       </div>
     </div>

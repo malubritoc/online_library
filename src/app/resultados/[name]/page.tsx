@@ -2,10 +2,7 @@
 
 import { SearchBar } from "@/components/general/search-bar";
 import { Header } from "@/components/header/header";
-import { SortButton } from "@/components/general/button-sort";
 import { SideMenu } from "@/components/menu/menu";
-import { CategoryTitle } from "@/components/category/category-title";
-import { CategoriesFilter } from "@/components/general/categories";
 import { ProductListPages } from "@/components/general/list-products";
 
 interface SearchResultPageProps {
@@ -34,8 +31,8 @@ export default function SearchResultPage({ params }: SearchResultPageProps) {
   ];
 
   return (
-    <main className="w-screen flex justify-center">
-      <div className="max-w-6xl w-full flex justify-center items-start">
+    <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">
+      <div className="max-w-6xl w-full flex gap-0 items-start overflow-hidden shadow-custom">
         <div className="">
           <SideMenu />
         </div>

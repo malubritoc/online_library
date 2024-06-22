@@ -85,8 +85,8 @@ export function HomeBannersSlider() {
                   instanceRef.current?.moveToIdx(idx);
                 }}
                 className={clsx(
-                  "border-none w-2 h-2 bg-black bg-opacity-15 rounded-full mx-1 cursor-pointer",
-                  "focus:outline-none data-[active=true]:bg-opacity-50"
+                  "border-none w-2 h-2 bg-black bg-opacity-50 rounded-full mx-1 cursor-pointer",
+                  "focus:outline-none data-[active=true]:bg-green-main data-[active=true]:bg-opacity-1"
                 )}
               ></button>
             );

@@ -66,7 +66,8 @@ export function CategoriesFilter({
               className={clsx(
                 "px-3 py-1 rounded-full",
                 "bg-gray-bg-button data-[active=true]:bg-yellow-main cursor-pointer",
-                "font-medium text-gray-text-button data-[active=true]:text-white"
+                "font-medium text-gray-text-button data-[active=true]:text-white",
+                "hover:text-yellow-main"
               )}
             >
               {category.name}

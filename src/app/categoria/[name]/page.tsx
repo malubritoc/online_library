@@ -34,8 +34,8 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   ];
 
   return (
-    <main className="w-screen flex justify-center">
-      <div className="max-w-6xl w-full flex justify-center items-start">
+    <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">
+      <div className="max-w-6xl w-full flex gap-0 items-start overflow-hidden shadow-custom">
         <div className="">
           <SideMenu />
         </div>
