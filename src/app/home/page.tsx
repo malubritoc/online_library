@@ -3,6 +3,7 @@
 import { SearchBar } from "@/components/general/search-bar";
 import { Header } from "@/components/header/header";
 import { HomeBannersSlider } from "@/components/home/banners";
+import { HomeCategoriesFilter } from "@/components/home/categories";
 import { SideMenu } from "@/components/menu/menu";
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
           <Header />
           <SearchBar />
           <HomeBannersSlider />
+          <HomeCategoriesFilter />
         </div>
       </div>
     </main>
