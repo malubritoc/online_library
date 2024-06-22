@@ -30,7 +30,7 @@ export function ProductSection({
           </button>
         )}
       </div>
-      <div className="flex justify-between">
+      <div className="flex gap-4 justify-between">
         {products.map((product, index) => (
           <ProductCard key={index} />
         ))}

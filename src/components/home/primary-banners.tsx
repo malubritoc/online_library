@@ -52,14 +52,17 @@ export function HomeBannersSlider() {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex items-center justify-center">
-        <div className="keen-slider flex overflow-hidden" ref={sliderRef}>
+      <div className="w-full flex items-center justify-center">
+        <div
+          className="keen-slider w-full flex overflow-hidden"
+          ref={sliderRef}
+        >
           {banners.map((banner, i) => {
             return (
               <div
                 className={`keen-slider__slide number-slide${
                   i + 1
-                } w-screen rounded-[18px] overflow-hidden`}
+                } w-full rounded-[18px] overflow-hidden`}
               >
                 <Image
                   src={banner}

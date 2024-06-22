@@ -6,8 +6,11 @@ import { BooksIcon } from "@/assets/side-menu/books-icon";
 import { SettingsIcon } from "@/assets/side-menu/settings-icon";
 import { ArrowIcon } from "@/assets/general-svg/arrow";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export function SideMenu() {
+  const router = useRouter();
   const [allBooksIsOpen, setAllBooksIsOpen] = useState(false);
   const sub_categories = [
     {
@@ -32,9 +35,11 @@ export function SideMenu() {
 
   return (
     <div className="min-w-[241px] flex flex-col gap-6">
-      <div className="p-4 border-b-[1px] border-b-[#E1E6EE]">
-        <Image src={logo} alt="Logo TheLibrary" />
-      </div>
+      <Link href="/home">
+        <div className="p-4 border-b-[1px] border-b-[#E1E6EE] cursor-pointer">
+          <Image src={logo} alt="Logo TheLibrary" />
+        </div>
+      </Link>
       <div className="flex flex-col gap-1 pr-4">
         <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
           <HomeIcon />

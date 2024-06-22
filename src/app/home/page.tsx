@@ -24,7 +24,9 @@ export default function HomePage() {
             <SearchBar />
             <SortButton />
           </div>
-          <HomeBannersSlider />
+          <div className="max-w-[847px]">
+            <HomeBannersSlider />
+          </div>
           <CategoriesFilter />
           <ProductSection
             title="Novidades"
