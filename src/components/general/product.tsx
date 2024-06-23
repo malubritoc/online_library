@@ -3,6 +3,7 @@ import img_teste from "@/assets/sign-in-page/img-sign-in.png";
 import Link from "next/link";
 import clsx from "clsx";
 import { ProductType } from "@/@types/Product";
+import { Parser } from "@/services/parser";
 
 export function ProductCard({ product }: { product: ProductType }) {
   function getTagText(tag: string) {
@@ -43,9 +44,27 @@ export function ProductCard({ product }: { product: ProductType }) {
             </div>
           )}
         </div>
-        <div className="flex flex-col gap-2">
-          <p className="text-xs">{product.name}</p>
-          <p className="text-xs font-bold">R$ {product.price}</p>
+        <div className="min-h-[50px] flex flex-col justify-between">
+          <div>
+            <p className="text-xs">{product.name}</p>
+          </div>
+          <div>
+            {product.offer ? (
+              <div className="flex gap-2 items-center">
+                <p className="text-xs text-[#EC412A] font-bold">
+                  {Parser.currency(product.price * 0.8)}
+                </p>
+                <p className="text-xs text-[#45474F] line-through">
+                  {Parser.currency(product.price)}
+                </p>
+                <div className="border border-[#EC412A] px-1 text-xs text-[#EC412A] rounded-sm">
+                  -20%
+                </div>
+              </div>
+            ) : (
+              <p className="text-xs font-bold">R$ {product.price}</p>
+            )}
+          </div>
         </div>
       </div>
     </Link>

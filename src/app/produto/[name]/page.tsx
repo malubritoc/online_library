@@ -59,6 +59,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                     name={product?.name}
                     price={product?.price}
                     description={product?.description}
+                    offer={product?.offer}
                   />
                   <ProductVariations
                     variations={product?.available_variations}

@@ -4,18 +4,34 @@ import clsx from "clsx";
 import { useState } from "react";
 import { ProductInfoProps } from "./interfaces";
 
-export function ProductInfo({ name, price, description }: ProductInfoProps) {
+export function ProductInfo({
+  name,
+  price,
+  description,
+  offer,
+}: ProductInfoProps) {
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
 
   return (
     <div className="w-full flex flex-col gap-4">
       <h1 className="text-[38px] font-bold">{name}</h1>
       <div className="flex flex-col gap-1">
-        <h3 className="text-xl text-green-main font-bold">
-          R$ {Parser.currency(price)}
-        </h3>
+        <div className="flex gap-4 items-center">
+          <h3 className="text-xl text-green-main font-bold">
+            R$ {offer ? Parser.currency(price * 0.8) : Parser.currency(price)}
+          </h3>
+          {offer && (
+            <span className="text-[#45474F] line-through">
+              R$ {Parser.currency(price)}
+            </span>
+          )}
+        </div>
         <p className="text-[#45474F] font-semibold">
-          ou em 2 x {Parser.currency(price / 2)} sem juros
+          ou em 2 x{" "}
+          {offer
+            ? Parser.currency((price / 2) * 0.8)
+            : Parser.currency(price / 2)}{" "}
+          sem juros
         </p>
       </div>
       <div

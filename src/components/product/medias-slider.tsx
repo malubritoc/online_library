@@ -49,7 +49,12 @@ export function MediaSlider({ medias }: { medias: any[] }) {
               )}
               onClick={() => sliderControl.current?.moveToIdx(idx)}
             >
-              <img src={media} alt="media" width="82" key={idx} />
+              <img
+                src={media}
+                alt="media"
+                key={idx}
+                className="object-cover w-[82px]"
+              />
             </div>
           );
         })}
