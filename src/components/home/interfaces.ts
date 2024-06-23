@@ -1,5 +1,7 @@
+import { ProductType } from "@/@types/Product";
+
 export interface ProductSectionProps {
     title: string;
-    products: number[];
+    products: Array<ProductType>;
     seeMore: boolean;
   }

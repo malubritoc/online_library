@@ -1,15 +1,14 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-export function ProductVariations() {
+export function ProductVariations({ variations }: { variations?: string[] }) {
   const [selectedVariation, setSelectedVariation] = useState(0);
-  const variations = ["Capa dura", "Capa brochura", "Kindle"];
 
   return (
     <div className="flex flex-col gap-3">
       <h3 className="font-bold">Variação</h3>
       <div className="flex gap-2">
-        {variations.map((variation, idx) => {
+        {variations?.map((variation, idx) => {
           return (
             <button
               key={idx}
@@ -22,7 +21,7 @@ export function ProductVariations() {
                 "data-[selected=true]:text-white"
               )}
             >
-              {variation}
+              {variation.toUpperCase()}
             </button>
           );
         })}

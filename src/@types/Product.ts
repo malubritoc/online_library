@@ -3,8 +3,8 @@ export interface ProductType {
     price: number,
     description: string,
     name: string,
-    author: string,
     category: string,
+    product_type: string,
     min_unit: number,
     available_variations: Array<string>,
     available_colors: Array<{
@@ -12,11 +12,11 @@ export interface ProductType {
         hex: string,
     }>,
     delivery_options: Array<{
-        id: string,
         name: string,
         price: number,
-        deadline: string,
+        deadline: number,
     }>,
     links_media: Array<string>,
     tags: Array<string>,
+    offer: boolean,
 }

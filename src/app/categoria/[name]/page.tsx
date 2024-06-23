@@ -7,41 +7,35 @@ import { SideMenu } from "@/components/menu/menu";
 import { CategoryTitle } from "@/components/category/category-title";
 import { CategoriesFilter } from "@/components/general/categories";
 import { ProductListPages } from "@/components/general/list-products";
-import { useEffect } from "react";
-import { categories } from "@/data/categories";
 import { useRouter } from "next/navigation";
-
-interface CategoryPageProps {
-  params: {
-    name: string;
-  };
-}
+import { useEffect, useState } from "react";
+import { getProducts } from "@/services/gets";
+import { ProductType } from "@/@types/Product";
+import { CategoryPageProps } from "./interfaces";
 
 export default function CategoryPage({ params }: CategoryPageProps) {
   const router = useRouter();
-  const products = [
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-  ];
+
+  console.log(params.name);
+
+  const [products, setProducts] = useState(Array<ProductType>);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (!categories.find((category) => category.value === params.name)) {
-      router.push("/nao-encontrada");
-    }
-  }, [params.name]);
+    console.log("oalaa");
+    getProducts().then((data: any) => {
+      // console.log("aquii", data);
+      setProducts(
+        params.name === "todos"
+          ? data
+          : data.filter(
+              (product: ProductType) =>
+                product.category.toLowerCase() === params.name.toLowerCase()
+            )
+      );
+      console.log(products);
+    });
+  }, []);
 
   return (
     <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">

@@ -8,11 +8,19 @@ import { ProductSection } from "@/components/home/product-section";
 import { SideMenu } from "@/components/menu/menu";
 import { SecondaryBanner } from "@/components/home/secondary-banner";
 import { SortButton } from "@/components/general/button-sort";
-import { getAllUsers } from "@/services/firebase";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getProducts, getUsers } from "@/services/gets";
+import { ProductType } from "@/@types/Product";
 
 export default function HomePage() {
-  const products = [1, 2, 3, 4];
+  const [products, setProducts] = useState(Array<ProductType>);
+
+  useEffect(() => {
+    getProducts().then((products) => {
+      setProducts(products);
+      console.log(products);
+    });
+  }, []);
 
   return (
     <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">
@@ -32,16 +40,26 @@ export default function HomePage() {
           <CategoriesFilter />
           <ProductSection
             title="Novidades"
-            products={products}
+            products={products
+              .filter((product) => product.tags.includes("novo"))
+              .slice(0, 4)}
             seeMore={false}
           />
           <SecondaryBanner />
           <ProductSection
             title="Promoções"
-            products={products}
+            products={products
+              .filter((product) => product.offer == true)
+              .slice(0, 4)}
             seeMore={true}
           />
-          <ProductSection title="Canecas" products={products} seeMore={true} />
+          <ProductSection
+            title="Canecas"
+            products={products
+              .filter((product) => product.product_type === "cup")
+              .slice(0, 4)}
+            seeMore={true}
+          />
         </div>
       </div>
     </main>

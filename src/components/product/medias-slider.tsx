@@ -1,10 +1,11 @@
 import { useKeenSlider } from "keen-slider/react";
-import { useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 export function MediaSlider({ medias }: { medias: any[] }) {
+  const [slides, setSlides] = useState<any[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
+  console.log(medias);
 
   const [sliderRef, sliderControl] = useKeenSlider<HTMLDivElement>({
     loop: false,
@@ -15,28 +16,29 @@ export function MediaSlider({ medias }: { medias: any[] }) {
       setCurrentIdx(slider.track.details.rel);
     },
   });
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("acessou");
+      setSlides(medias), 1000;
+    });
+  }, [medias]);
 
-  return (
-    <div className="flex flex-col gap-2 w-full">
+  return medias?.length > 0 ? (
+    <div className="flex flex-col gap-2 w-[400px] ">
       <div ref={sliderRef} className="keen-slider flex w-full overflow-hidden">
-        {medias.map((media, idx) => {
+        {medias?.map((media, idx) => {
           return (
             <div
               key={idx}
-              className={`relative keen-slider__slide number-slide${idx} w-full`}
+              className={`relative keen-slider__slide number-slide${idx} w-[400px]`}
             >
-              <Image
-                src={media}
-                alt="media"
-                objectFit="cover"
-                className="w-full"
-              />
+              <img src={media} alt="media" className="w-[400px] object-cover" />
             </div>
           );
         })}
       </div>
       <div className="w-full flex justify-start gap-6">
-        {medias.map((media, idx) => {
+        {medias?.map((media, idx) => {
           return (
             <div
               key={idx}
@@ -47,17 +49,13 @@ export function MediaSlider({ medias }: { medias: any[] }) {
               )}
               onClick={() => sliderControl.current?.moveToIdx(idx)}
             >
-              <Image
-                src={media}
-                alt="media"
-                objectFit="cover"
-                width="82"
-                key={idx}
-              />
+              <img src={media} alt="media" width="82" key={idx} />
             </div>
           );
         })}
       </div>
     </div>
+  ) : (
+    <div>Carregando..</div>
   );
 }

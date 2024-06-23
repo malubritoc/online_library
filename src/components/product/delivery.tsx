@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { CepForm } from "../forms/cep";
 import clsx from "clsx";
+import { Parser } from "@/services/parser";
 
-export function ProductDelivery() {
+export function ProductDelivery({
+  deliveryTypes,
+}: {
+  deliveryTypes?: {
+    name: string;
+    price: number;
+    deadline: number;
+  }[];
+}) {
   const [deliverySelected, setDeliverySelected] = useState(0);
-  const delivery_types = [
-    { name: "PAC", price: 20, deadline: 10 },
-    { name: "SEDEX", price: 30, deadline: 5 },
-    { name: "Retirada na loja", price: 0, deadline: 0 },
-  ];
 
   return (
     <div className="flex flex-col gap-2">
@@ -16,7 +20,7 @@ export function ProductDelivery() {
       <CepForm />
       <div className="flex flex-col gap-2">
         <h3 className="font-bold">Tipos de entrega</h3>
-        {delivery_types.map((delivery, idx) => (
+        {deliveryTypes?.map((delivery, idx) => (
           <div
             key={idx}
             data-selected={deliverySelected === idx}
@@ -33,7 +37,7 @@ export function ProductDelivery() {
               <span className="font-bold">{delivery.name}</span>
               <span>{delivery.deadline} dias úteis</span>
             </div>
-            <span>R$ {delivery.price}</span>
+            <span>{Parser.currency(delivery.price)}</span>
           </div>
         ))}
       </div>

@@ -4,12 +4,7 @@ import { SearchBar } from "@/components/general/search-bar";
 import { Header } from "@/components/header/header";
 import { SideMenu } from "@/components/menu/menu";
 import { ProductListPages } from "@/components/general/list-products";
-
-interface SearchResultPageProps {
-  params: {
-    name: string;
-  };
-}
+import { SearchResultPageProps } from "./interfaces";
 
 export default function SearchResultPage({ params }: SearchResultPageProps) {
   const products = [

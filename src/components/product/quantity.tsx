@@ -1,6 +1,6 @@
 import { Counter } from "./counter";
 
-export function ProductQuantity() {
+export function ProductQuantity({ minUnit }: { minUnit: number }) {
   return (
     <div className="flex flex-col gap-2">
       <h3 className="font-bold">Quantidade </h3>

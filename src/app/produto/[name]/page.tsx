@@ -4,7 +4,6 @@ import { Header } from "@/components/header/header";
 import { SideMenu } from "@/components/menu/menu";
 import { ProductBreadcrumbs } from "@/components/product/breadcrumbs";
 import { MediaSlider } from "@/components/product/medias-slider";
-import img_teste from "@/assets/sign-in-page/img-sign-in.png";
 import { ProductInfo } from "@/components/product/info";
 import { ProductVariations } from "@/components/product/variations";
 import { ProductColors } from "@/components/product/colors";
@@ -12,14 +11,30 @@ import { ProductQuantity } from "@/components/product/quantity";
 import { AddProductButton } from "@/components/product/add-product";
 import { WhatsappButton } from "@/components/product/whatsapp-button";
 import { ProductDelivery } from "@/components/product/delivery";
-
-interface ProductPageProps {
-  params: {
-    name: string;
-  };
-}
+import { getProductById, getProducts } from "@/services/gets";
+import { use, useEffect, useState } from "react";
+import { ProductType } from "@/@types/Product";
+import { ProductPageProps } from "./interfaces";
 
 export default function ProductPage({ params }: ProductPageProps) {
+  const [product, setProduct] = useState({} as ProductType);
+  const [loading, setLoading] = useState(true);
+
+  function getProduct() {
+    getProductById(params.name).then((response) => {
+      setProduct(response[0]);
+    });
+  }
+
+  useEffect(() => {
+    try {
+      getProduct();
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">
       <div className="max-w-6xl w-full flex gap-0 items-start overflow-hidden shadow-custom">
@@ -29,24 +44,35 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="w-full h-full flex flex-col gap-12 px-8 pb-8 bg-gray-bg-screen">
           <div className="w-full h-full flex flex-col gap-6 px-8 pb-8 bg-gray-bg-screen">
             <Header />
-            <ProductBreadcrumbs />
+            <ProductBreadcrumbs
+              name={product.name}
+              category={product.category}
+            />
             <div className="flex"></div>
-            <div className="flex gap-8 w-full h-full ">
-              <div className="flex max-w-[375.5px] w-full">
-                <MediaSlider medias={[img_teste, img_teste, img_teste]} />
-              </div>
-              <div className="w-full flex flex-col gap-6">
-                <ProductInfo />
-                <ProductVariations />
-                <ProductColors />
-                <ProductQuantity />
-                <div className="flex flex-col gap-4">
-                  <AddProductButton />
-                  <WhatsappButton />
+            {product && (
+              <div className="flex gap-8 w-full h-full ">
+                <div className="flex w-[400px] w-full">
+                  <MediaSlider medias={product?.links_media} />
                 </div>
-                <ProductDelivery />
+                <div className="w-full flex flex-col gap-6">
+                  <ProductInfo
+                    name={product?.name}
+                    price={product?.price}
+                    description={product?.description}
+                  />
+                  <ProductVariations
+                    variations={product?.available_variations}
+                  />
+                  <ProductColors colors={product?.available_colors} />
+                  <ProductQuantity minUnit={product?.min_unit} />
+                  <div className="flex flex-col gap-4">
+                    <AddProductButton />
+                    <WhatsappButton />
+                  </div>
+                  <ProductDelivery deliveryTypes={product?.delivery_options} />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

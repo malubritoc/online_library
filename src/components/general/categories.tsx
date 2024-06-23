@@ -11,16 +11,14 @@ export function CategoriesFilter({
   function getInitialIdx() {
     if (starterCategory) {
       switch (starterCategory.toLowerCase()) {
-        case "biblias":
-          return 1;
         case "teologia":
-          return 2;
+          return 1;
         case "filosofia":
+          return 2;
+        case "programacao":
           return 3;
-        case "ciencia":
+        case "culinaria":
           return 4;
-        case "outros":
-          return 5;
       }
     }
     return 0;

@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs, getFirestore } from "firebase/firestore";
+import { collection, addDoc, getDocs, getFirestore, doc, getDoc, query, where } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { ProductType } from "@/@types/Product";
 
@@ -13,10 +13,10 @@ export const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
-const productsCollectionRef = collection(db, "books");
+const productsCollectionRef = collection(db, "products");
 const usersCollectionRef = collection(db, "users");
+const categoriesCollectionRef = collection(db, "categories");
 
 export async function getAllProducts() {
   return getDocs(productsCollectionRef).then((querySnapshot) => {
@@ -36,4 +36,30 @@ export async function getAllUsers() {
     });
     return data;
   });
+}
+
+export async function getAllCategories() {
+    return getDocs(categoriesCollectionRef).then((querySnapshot) => {
+        let data = <any>[];
+        querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+        });
+        return data;
+    });
+}
+
+
+export async function getProduct(id: string) {
+  const q = query(productsCollectionRef, where("id", "==", id));
+  const querySnapshot = await getDocs(q);
+
+  if (!querySnapshot.empty) {
+    let data: any[] = [];
+    querySnapshot.forEach((doc) => {
+      data.push(doc.data());
+    });
+    return data;
+  } else {
+    throw new Error('Erro. Tente novamente mais tarde.');
+  }
 }

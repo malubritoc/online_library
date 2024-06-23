@@ -25,9 +25,9 @@ export function ProductSection({
           </button>
         )}
       </div>
-      <div className="flex gap-4 justify-between">
+      <div className="flex gap-6 items-start">
         {products.map((product, idx) => (
-          <ProductCard key={idx} />
+          <ProductCard product={product} key={idx} />
         ))}
       </div>
     </div>
