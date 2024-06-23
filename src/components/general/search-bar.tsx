@@ -1,4 +1,3 @@
-import { SearchIcon } from "@/assets/general-svg/search";
 import { SearchForm } from "../forms/search";
 
 export function SearchBar() {

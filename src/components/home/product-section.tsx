@@ -1,12 +1,7 @@
 import clsx from "clsx";
 import { ProductCard } from "../general/product";
 import { ArrowIcon } from "@/assets/general-svg/arrow";
-
-interface ProductSectionProps {
-  title: string;
-  products: number[];
-  seeMore: boolean;
-}
+import { ProductSectionProps } from "./interfaces";
 
 export function ProductSection({
   title,

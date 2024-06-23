@@ -27,7 +27,6 @@ export function SignInForm() {
         <label>E-mail</label>
         <input
           type="text"
-          data-invalid={errors.email ? true : undefined}
           className="border border-gray-[#AEB0B3] rounded-[8px] p-2 w-full"
           {...register("email")}
         />
@@ -37,7 +36,6 @@ export function SignInForm() {
         <label>Senha</label>
         <input
           type="password"
-          data-invalid={errors.password ? true : undefined}
           className="border border-gray-[#AEB0B3] rounded-[8px] p-2 w-full"
           {...register("password")}
         />

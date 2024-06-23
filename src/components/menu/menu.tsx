@@ -6,13 +6,11 @@ import { BooksIcon } from "@/assets/side-menu/books-icon";
 import { SettingsIcon } from "@/assets/side-menu/settings-icon";
 import { ArrowIcon } from "@/assets/general-svg/arrow";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowsProfile } from "@/assets/side-menu/arrows-profile";
 import clsx from "clsx";
 
 export function SideMenu() {
-  const router = useRouter();
   const [allBooksIsOpen, setAllBooksIsOpen] = useState(false);
   const sub_categories = [
     {
