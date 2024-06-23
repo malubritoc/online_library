@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowsProfile } from "@/assets/side-menu/arrows-profile";
+import clsx from "clsx";
 
 export function SideMenu() {
   const router = useRouter();
@@ -42,24 +43,47 @@ export function SideMenu() {
         </Link>
         <div className="flex flex-col gap-1 pr-4">
           <Link href={"/inicio"}>
-            <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
+            <div
+              className={clsx(
+                "flex gap-[6px] items-center",
+                "px-4 py-2 rounded-[8px]",
+                "hover:bg-gray-hover hover:text-yellow-main",
+                "cursor-pointer"
+              )}
+            >
               <HomeIcon />
               <h3 className="text-sm font-bold">Início</h3>
             </div>
           </Link>
           <Link href={"/em-breve"}>
-            <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
+            <div
+              className={clsx(
+                "flex gap-[6px] items-center",
+                "px-4 py-2 rounded-[8px]",
+                "hover:bg-gray-hover hover:text-yellow-main",
+                "cursor-pointer"
+              )}
+            >
               <NotificationIcon />
               <h3 className="text-sm font-bold">Notificações</h3>
             </div>
           </Link>
           <div
             data-open={allBooksIsOpen}
-            className={`h-[36px] data-[open=true]:h-[172px] flex flex-col gap-2 overflow-hidden cursor-pointer [&>svg]:data-[open=true]:rotate-180 transition-all`}
+            className={clsx(
+              "h-[36px] data-[open=true]:h-[172px]",
+              "flex flex-col gap-2",
+              "overflow-hidden cursor-pointer",
+              "[&>svg]:data-[open=true]:rotate-180 transition-all"
+            )}
           >
             <div
               onClick={() => setAllBooksIsOpen(!allBooksIsOpen)}
-              className="w-full flex items-center justify-between pl-4 pr-2 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main"
+              className={clsx(
+                "w-full flex items-center justify-between",
+                "pl-4 pr-2 py-2 rounded-[8px]",
+                "hover:bg-gray-hover hover:text-yellow-main"
+              )}
             >
               <div className="flex gap-[6px] items-center">
                 <BooksIcon />
@@ -80,7 +104,12 @@ export function SideMenu() {
               {sub_categories.map((category, idx) => {
                 return (
                   <Link key={idx} href={category.url}>
-                    <p className="py-1 pl-5 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main text-sm">
+                    <p
+                      className={clsx(
+                        "py-1 pl-5 rounded-[8px]",
+                        "hover:bg-gray-hover hover:text-yellow-main text-sm"
+                      )}
+                    >
                       {category.name}
                     </p>
                   </Link>
@@ -89,14 +118,26 @@ export function SideMenu() {
             </div>
           </div>
           <Link href={"/em-breve"}>
-            <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
+            <div
+              className={clsx(
+                "flex gap-[6px] items-center",
+                "px-4 py-2 rounded-[8px]",
+                "hover:bg-gray-hover hover:text-yellow-main",
+                "cursor-pointer"
+              )}
+            >
               <SettingsIcon />
               <h3 className="text-sm font-bold">Configurações</h3>
             </div>
           </Link>
         </div>
         <Link href="/em-breve">
-          <div className="w-full absolute bottom-0 flex justify-between items-center px-4 py-4 border-t-[1px] border-t-[#E1E6EE]">
+          <div
+            className={clsx(
+              "w-full absolute bottom-0 flex justify-between items-center",
+              "px-4 py-4 border-t-[1px] border-t-[#E1E6EE]"
+            )}
+          >
             <div className="flex items-center gap-3">
               <Image
                 src={logo}

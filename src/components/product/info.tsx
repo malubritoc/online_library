@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useState } from "react";
 
 export function ProductInfo() {
@@ -27,7 +28,12 @@ export function ProductInfo() {
       >
         <p>{product.description}</p>
         {!isDescriptionOpen && (
-          <div className="w-full h-[100px] absolute bottom-0 bg-gradient-to-t from-gray-bg-screen to-transparent" />
+          <div
+            className={clsx(
+              "w-full h-[100px] absolute bottom-0",
+              "bg-gradient-to-t from-gray-bg-screen to-transparent"
+            )}
+          />
         )}
       </div>
       <button

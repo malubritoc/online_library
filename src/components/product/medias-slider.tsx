@@ -1,6 +1,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import { useState } from "react";
 import Image from "next/image";
+import clsx from "clsx";
 
 export function MediaSlider({ medias }: { medias: any[] }) {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -40,7 +41,10 @@ export function MediaSlider({ medias }: { medias: any[] }) {
             <div
               key={idx}
               data-active={currentIdx == idx}
-              className="data-[active=true]:border-[3px] data-[active=true]:border-green-main rounded-md cursor-pointer"
+              className={clsx(
+                "data-[active=true]:border-[3px] data-[active=true]:border-green-main",
+                "rounded-md cursor-pointer"
+              )}
               onClick={() => sliderControl.current?.moveToIdx(idx)}
             >
               <Image

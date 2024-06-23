@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useState } from "react";
 
 export function ProductColors() {
@@ -28,7 +29,12 @@ export function ProductColors() {
               data-selected={selectedColor == idx}
               onClick={() => setSelectedColor(idx)}
               style={{ backgroundColor: color.hex }}
-              className="w-8 h-8 rounded-full data-[white=true]:border data-[white=true]:border=[#ECECEC] data-[selected=true]:outline  outline-offset-2 outline-2 outline-black cursor-pointer"
+              className={clsx(
+                "w-8 h-8 rounded-full",
+                "data-[white=true]:border data-[white=true]:border=[#ECECEC]",
+                "data-[selected=true]:outline  outline-offset-2 outline-2 outline-black",
+                "cursor-pointer"
+              )}
             />
           );
         })}

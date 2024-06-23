@@ -23,7 +23,8 @@ export function ProductDelivery() {
             onClick={() => setDeliverySelected(idx)}
             className={clsx(
               "flex justify-between items-center",
-              "px-4 py-2 border border-[#ECECEC] rounded-[8px] data-[selected=true]:border-[2px] data-[selected=true]:border-[#11131A]",
+              "px-4 py-2 border border-[#ECECEC] rounded-[8px]",
+              "data-[selected=true]:border-[2px] data-[selected=true]:border-[#11131A]",
               "hover:border-[#11131A] hover:border-opacity-20",
               "cursor-pointer"
             )}

@@ -15,7 +15,12 @@ export function SignInComponent() {
       >
         <h2 className="text-2xl text-[#0C1421] font-bold">Login da marca</h2>
         <SignInForm />
-        <button className="px-6 py-2 rounded-[8px] border border-[#D0D5DD] hover:border-black text-xs text-[#667085] hover:text-black">
+        <button
+          className={clsx(
+            "px-6 py-2 rounded-[8px] border border-[#D0D5DD]",
+            "hover:border-black text-xs text-[#667085] hover:text-black"
+          )}
+        >
           Esqueci minha senha
         </button>
       </div>

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ArrowIcon } from "@/assets/product/arrow";
+import clsx from "clsx";
 
 const cepFormSchema = z.object({
   cep: z
@@ -42,7 +43,12 @@ export function CepForm() {
             maxLength={8}
           />
         </div>
-        <button className="bg-[#11131A] px-3 py-2 border border-[#11131A] hover:bg-opacity-80 rounded-[8px]">
+        <button
+          className={clsx(
+            "px-3 py-2 border border-[#11131A] rounded-[8px]",
+            "bg-[#11131A] hover:bg-opacity-80"
+          )}
+        >
           <ArrowIcon />
         </button>
       </form>

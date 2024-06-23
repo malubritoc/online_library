@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useState } from "react";
 
 export function ProductVariations() {
@@ -14,7 +15,12 @@ export function ProductVariations() {
               key={idx}
               onClick={() => setSelectedVariation(idx)}
               data-selected={selectedVariation == idx}
-              className="px-3 py-2 border border-[#45474F] rounded-md text-sm text-[#45474F] data-[selected=true]:bg-green-main data-[selected=true]:border-[#279FB7] data-[selected=true]:text-white"
+              className={clsx(
+                "px-3 py-2 border border-[#45474F] rounded-md",
+                "text-sm text-[#45474F]",
+                "data-[selected=true]:bg-green-main data-[selected=true]:border-[#279FB7]",
+                "data-[selected=true]:text-white"
+              )}
             >
               {variation}
             </button>
