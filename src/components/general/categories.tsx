@@ -1,21 +1,13 @@
 import clsx from "clsx";
 import { useState } from "react";
 import Link from "next/link";
+import { categories } from "@/data/categories";
 
 export function CategoriesFilter({
   starterCategory,
 }: {
   starterCategory?: string;
 }) {
-  const categories = [
-    { name: "Todos" },
-    { name: "Bíblias" },
-    { name: "Teologia" },
-    { name: "Filosofia" },
-    { name: "Ciência" },
-    { name: "Outras..." },
-  ];
-
   function getInitialIdx() {
     if (starterCategory) {
       switch (starterCategory.toLowerCase()) {
@@ -34,30 +26,13 @@ export function CategoriesFilter({
     return 0;
   }
 
-  function getParamName(name: string) {
-    switch (name) {
-      case "Todos":
-        return "todos";
-      case "Bíblias":
-        return "biblias";
-      case "Teologia":
-        return "teologia";
-      case "Filosofia":
-        return "filosofia";
-      case "Ciência":
-        return "ciencia";
-      case "Outras...":
-        return "outros";
-    }
-  }
-
   const [activeCategory, setActiveCategory] = useState(getInitialIdx());
 
   return (
     <div className="w-full flex justify-center items-center gap-[10px] ">
       {categories.map((category, idx) => {
         return (
-          <Link key={idx} href={`/categoria/${getParamName(category.name)}`}>
+          <Link key={idx} href={`/categoria/${category.value}`}>
             <div
               onClick={() => setActiveCategory(idx)}
               data-active={activeCategory == idx}

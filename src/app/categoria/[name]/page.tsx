@@ -7,6 +7,9 @@ import { SideMenu } from "@/components/menu/menu";
 import { CategoryTitle } from "@/components/category/category-title";
 import { CategoriesFilter } from "@/components/general/categories";
 import { ProductListPages } from "@/components/general/list-products";
+import { useEffect } from "react";
+import { categories } from "@/data/categories";
+import { useRouter } from "next/navigation";
 
 interface CategoryPageProps {
   params: {
@@ -15,6 +18,7 @@ interface CategoryPageProps {
 }
 
 export default function CategoryPage({ params }: CategoryPageProps) {
+  const router = useRouter();
   const products = [
     { title: "Cem anos de solidão", price: 100 },
     { title: "Cem anos de solidão", price: 100 },
@@ -32,6 +36,12 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     { title: "Cem anos de solidão", price: 100 },
     { title: "Cem anos de solidão", price: 100 },
   ];
+
+  useEffect(() => {
+    if (!categories.find((category) => category.value === params.name)) {
+      router.push("/nao-encontrada");
+    }
+  }, [params.name]);
 
   return (
     <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">
