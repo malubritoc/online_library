@@ -5,6 +5,7 @@ import { SideMenu } from "@/components/menu/menu";
 import { ProductBreadcrumbs } from "@/components/product/breadcrumbs";
 import { MediaSlider } from "@/components/product/medias-slider";
 import img_teste from "@/assets/sign-in-page/img-sign-in.png";
+import { ProductInfo } from "@/components/product/info";
 
 interface ProductPageProps {
   params: {
@@ -19,12 +20,18 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="">
           <SideMenu />
         </div>
-        <div className="w-full h-full flex flex-col gap-6 px-8 pb-8 bg-gray-bg-screen">
-          <Header />
-          <ProductBreadcrumbs />
-          <div className="flex w-full h-full ">
-            <div className="flex max-w-[473px] w-full">
-              <MediaSlider medias={[img_teste, img_teste, img_teste]} />
+        <div className="w-full h-full flex flex-col gap-12 px-8 pb-8 bg-gray-bg-screen">
+          <div className="w-full h-full flex flex-col gap-6 px-8 pb-8 bg-gray-bg-screen">
+            <Header />
+            <ProductBreadcrumbs />
+            <div className="flex"></div>
+            <div className="flex gap-8 w-full h-full ">
+              <div className="flex max-w-[375.5px] w-full">
+                <MediaSlider medias={[img_teste, img_teste, img_teste]} />
+              </div>
+              <div className="w-full">
+                <ProductInfo />
+              </div>
             </div>
           </div>
         </div>

@@ -19,14 +19,19 @@ export function MediaSlider({ medias }: { medias: any[] }) {
 
   return (
     <div className="flex flex-col gap-2 w-full">
-      <div ref={sliderRef} className="keen-slider flex overflow-hidden">
+      <div ref={sliderRef} className="keen-slider flex w-full overflow-hidden">
         {medias.map((media, idx) => {
           return (
             <div
               key={idx}
-              className={`relative keen-slider__slide number-slide${idx}`}
+              className={`relative keen-slider__slide number-slide${idx} w-full`}
             >
-              <Image src={media} alt="media" objectFit="cover" />
+              <Image
+                src={media}
+                alt="media"
+                objectFit="cover"
+                className="w-full"
+              />
             </div>
           );
         })}
