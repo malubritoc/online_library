@@ -40,20 +40,6 @@ export function SideMenu() {
             <Image src={logo} alt="Logo TheLibrary" objectFit="cover" />
           </div>
         </Link>
-        <div className="w-full absolute bottom-0 flex justify-between items-center px-4 py-4 border-t-[1px] border-t-[#E1E6EE]">
-          <div className="flex items-center gap-3">
-            <Image
-              src={logo}
-              alt="Imagem de perfil"
-              width={27}
-              height={27}
-              objectFit="cover"
-              className="rounded-full"
-            />
-            <p className="text-sm font-bold">Menino Feliz</p>
-          </div>
-          <ArrowsProfile />
-        </div>
         <div className="flex flex-col gap-1 pr-4">
           <Link href={"/inicio"}>
             <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
@@ -61,10 +47,12 @@ export function SideMenu() {
               <h3 className="text-sm font-bold">Início</h3>
             </div>
           </Link>
-          <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
-            <NotificationIcon />
-            <h3 className="text-sm font-bold">Notificações</h3>
-          </div>
+          <Link href={"/em-breve"}>
+            <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
+              <NotificationIcon />
+              <h3 className="text-sm font-bold">Notificações</h3>
+            </div>
+          </Link>
           <div
             data-open={allBooksIsOpen}
             className={`h-[36px] data-[open=true]:h-[172px] flex flex-col gap-2 overflow-hidden cursor-pointer [&>svg]:data-[open=true]:rotate-180 transition-all`}
@@ -100,11 +88,29 @@ export function SideMenu() {
               })}
             </div>
           </div>
-          <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
-            <SettingsIcon />
-            <h3 className="text-sm font-bold">Configurações</h3>
-          </div>
+          <Link href={"/em-breve"}>
+            <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
+              <SettingsIcon />
+              <h3 className="text-sm font-bold">Configurações</h3>
+            </div>
+          </Link>
         </div>
+        <Link href="/em-breve">
+          <div className="w-full absolute bottom-0 flex justify-between items-center px-4 py-4 border-t-[1px] border-t-[#E1E6EE]">
+            <div className="flex items-center gap-3">
+              <Image
+                src={logo}
+                alt="Imagem de perfil"
+                width={27}
+                height={27}
+                objectFit="cover"
+                className="rounded-full"
+              />
+              <p className="text-sm font-bold">Menino Feliz</p>
+            </div>
+            <ArrowsProfile />
+          </div>
+        </Link>
       </div>
     </div>
   );

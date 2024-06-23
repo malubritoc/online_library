@@ -2,7 +2,7 @@ import Image from "next/image";
 import logo from "@/assets/logo.png";
 import Link from "next/link";
 
-export default function NotFound() {
+export default function Soon() {
   return (
     <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">
       <div className="max-w-6xl w-full flex gap-0 items-start overflow-hidden shadow-custom">
@@ -11,14 +11,14 @@ export default function NotFound() {
           <div className="w-[500px] h-[500px] flex flex-col items-center justify-center gap-8 p-12 rounded-full bg-green-main">
             <div className="flex flex-col gap-1">
               <h1 className="text-6xl font-bold text-yellow-main text-center">
-                404
+                ⚠️
               </h1>
               <h3 className="text-xl font-bold text-white text-center">
-                Ops... a página não foi encontrada.{" "}
+                Ops... a página está em construcão.{" "}
               </h3>
               <p className="text-white text-center">
-                Parece que a solicitação que você está procurando não existe ou
-                foi removida.
+                Parece que a o recurso que você está tentando acessar ainda não
+                está disponível.
               </p>
             </div>
 
