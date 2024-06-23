@@ -1,0 +1,51 @@
+"use client";
+
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { ArrowIcon } from "@/assets/product/arrow";
+
+const cepFormSchema = z.object({
+  cep: z.string().length(8),
+});
+
+type CepFormInputs = z.infer<typeof cepFormSchema>;
+
+export function CepForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<CepFormInputs>({
+    resolver: zodResolver(cepFormSchema),
+  });
+
+  function handleCep(data: CepFormInputs) {
+    console.log(data);
+  }
+
+  return (
+    <div className="flex flex-col gap-1">
+      <form
+        className="flex items-center gap-2"
+        onSubmit={handleSubmit(handleCep)}
+      >
+        <div className="flex flex-col w-full">
+          <input
+            type="text"
+            placeholder="Digite seu CEP para calcular"
+            className="w-full bg-white px-3 py-2 border border-[#11131A] rounded-[8px]"
+            {...register("cep")}
+          />
+          {errors.cep && <span className="">CEP inválido</span>}
+        </div>
+        <button className="bg-[#11131A] px-3 py-2 border border-[#11131A] hover:bg-opacity-80 rounded-[8px]">
+          <ArrowIcon />
+        </button>
+      </form>
+      <button className="text-sm underline self-start px-4">
+        Não sei meu cep
+      </button>
+    </div>
+  );
+}

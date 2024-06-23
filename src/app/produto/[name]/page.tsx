@@ -6,6 +6,12 @@ import { ProductBreadcrumbs } from "@/components/product/breadcrumbs";
 import { MediaSlider } from "@/components/product/medias-slider";
 import img_teste from "@/assets/sign-in-page/img-sign-in.png";
 import { ProductInfo } from "@/components/product/info";
+import { ProductVariations } from "@/components/product/variations";
+import { ProductColors } from "@/components/product/colors";
+import { ProductQuantity } from "@/components/product/quantity";
+import { AddProductButton } from "@/components/product/add-product";
+import { WhatsappButton } from "@/components/product/whatsapp-button";
+import { ProductDelivery } from "@/components/product/delivery";
 
 interface ProductPageProps {
   params: {
@@ -29,8 +35,16 @@ export default function ProductPage({ params }: ProductPageProps) {
               <div className="flex max-w-[375.5px] w-full">
                 <MediaSlider medias={[img_teste, img_teste, img_teste]} />
               </div>
-              <div className="w-full">
+              <div className="w-full flex flex-col gap-6">
                 <ProductInfo />
+                <ProductVariations />
+                <ProductColors />
+                <ProductQuantity />
+                <div className="flex flex-col gap-4">
+                  <AddProductButton />
+                  <WhatsappButton />
+                </div>
+                <ProductDelivery />
               </div>
             </div>
           </div>

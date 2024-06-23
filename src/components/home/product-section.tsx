@@ -22,7 +22,7 @@ export function ProductSection({
             className={clsx(
               "flex items-center gap-3",
               "px-2 py-1 border border-[#11131A] rounded-full",
-              "text-xs [&>svg]:rotate-[-90deg]"
+              "text-xs"
             )}
           >
             <p>Ver mais</p>

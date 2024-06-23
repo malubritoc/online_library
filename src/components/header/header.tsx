@@ -1,6 +1,6 @@
-import { HomeIcon } from "@/assets/side-menu/home-icon";
 import * as Dialog from "@radix-ui/react-dialog";
 import { CartDialog } from "../dialogs/cartDialog";
+import { BagIcon } from "@/assets/general-svg/bag";
 
 export function Header() {
   return (
@@ -9,7 +9,7 @@ export function Header() {
       <Dialog.Root>
         <Dialog.Trigger>
           <div className="px-4 cursor-pointer">
-            <HomeIcon />
+            <BagIcon color="black" />
           </div>
         </Dialog.Trigger>
         <CartDialog />
