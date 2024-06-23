@@ -10,8 +10,12 @@ export function ProductsListCart() {
 
   return (
     <div className="w-full max-h-[250px] flex flex-col gap-2 overflow-y-scroll px-2">
-      {products.map((product, i) => {
-        return <CartProduct />;
+      {products.map((product, idx) => {
+        return (
+          <div key={idx}>
+            <CartProduct />
+          </div>
+        );
       })}
     </div>
   );

@@ -8,6 +8,7 @@ import { ArrowIcon } from "@/assets/general-svg/arrow";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { ArrowsProfile } from "@/assets/side-menu/arrows-profile";
 
 export function SideMenu() {
   const router = useRouter();
@@ -34,13 +35,27 @@ export function SideMenu() {
   console.log(allBooksIsOpen);
 
   return (
-    <div className="min-w-[241px]">
+    <div className="min-w-[241px] pb-4">
       <div className="fixed min-w-[241px] h-screen flex flex-col gap-6 bg-white">
         <Link href="/inicio">
           <div className="p-4 border-b-[1px] border-b-[#E1E6EE] cursor-pointer">
             <Image src={logo} alt="Logo TheLibrary" />
           </div>
         </Link>
+        <div className="w-full absolute bottom-0 flex justify-between items-center px-4 py-4 border-t-[1px] border-t-[#E1E6EE]">
+          <div className="flex items-center gap-3">
+            <Image
+              src={logo}
+              alt="Imagem de perfil"
+              width={27}
+              height={27}
+              objectFit="cover"
+              className="rounded-full"
+            />
+            <p className="text-sm font-bold">Menino Feliz</p>
+          </div>
+          <ArrowsProfile />
+        </div>
         <div className="flex flex-col gap-1 pr-4">
           <Link href={"/inicio"}>
             <div className="flex gap-[6px] items-center cursor-pointer px-4 py-2 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main">
