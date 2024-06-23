@@ -8,7 +8,8 @@ import { ProductSection } from "@/components/home/product-section";
 import { SideMenu } from "@/components/menu/menu";
 import { SecondaryBanner } from "@/components/home/secondary-banner";
 import { SortButton } from "@/components/general/button-sort";
-import { useEffect, useState } from "react";
+import { getAllUsers } from "@/services/firebase";
+import { useEffect } from "react";
 
 export default function HomePage() {
   const products = [1, 2, 3, 4];

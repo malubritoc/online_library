@@ -3,10 +3,11 @@ export interface ProductType {
     price: number,
     description: string,
     name: string,
+    author: string,
     category: string,
     min_unit: number,
     available_variations: Array<string>,
-    available_color: Array<{
+    available_colors: Array<{
         name: string,
         hex: string,
     }>,
@@ -16,11 +17,6 @@ export interface ProductType {
         price: number,
         deadline: string,
     }>,
-    LinkMidiaProduct: Array<{
-        id: string,
-        type: 'img' | 'document' | 'video', 
-        link_midia: string,
-        product_id: string,
-    }>,
-    Tags: Array<string>,
+    links_media: Array<string>,
+    tags: Array<string>,
 }

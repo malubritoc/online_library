@@ -1,5 +1,6 @@
 import { collection, addDoc, getDocs, getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import { ProductType } from "@/@types/Product";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB1tgR8etnTCnbHcf_x_5dNWZLl-349x3g",
@@ -14,5 +15,25 @@ export const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
-const userCollectionRef = collection(db, "books");
+const productsCollectionRef = collection(db, "books");
+const usersCollectionRef = collection(db, "users");
 
+export async function getAllProducts() {
+  return getDocs(productsCollectionRef).then((querySnapshot) => {
+    let data = <any>[];
+    querySnapshot.forEach((doc) => {
+      data.push(doc.data());
+    });
+    return data;
+  });
+}
+
+export async function getAllUsers() {
+  return getDocs(usersCollectionRef).then((querySnapshot) => {
+    let data = <any>[];
+    querySnapshot.forEach((doc) => {
+      data.push(doc.data());
+    });
+    return data;
+  });
+}
