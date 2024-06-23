@@ -17,6 +17,7 @@ export function CartDialog() {
             "shadow-low bg-white animate-fade-in-scale"
           )}
         >
+          <Dialog.Title className="hidden" />
           <div className="flex flex-col">
             <CartHeader />
             <div className="flex flex-col items-center gap-12 px-4 py-8">

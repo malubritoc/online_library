@@ -21,6 +21,7 @@ export function Counter() {
         className="w-10 text-center bg-transparent"
         min={1}
         type="number"
+        onChange={(e) => setQuantity(Number(e.target.value))}
       />
       <button onClick={() => setQuantity(quantity + 1)}>
         <PlusIcon />

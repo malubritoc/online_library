@@ -57,17 +57,19 @@ export function HomeBannersSlider() {
           className="keen-slider w-full flex overflow-hidden"
           ref={sliderRef}
         >
-          {banners.map((banner, i) => {
+          {banners.map((banner, idx) => {
             return (
               <div
+                key={idx}
                 className={`keen-slider__slide number-slide${
-                  i + 1
+                  idx + 1
                 } w-full rounded-[18px] overflow-hidden`}
               >
                 <Image
                   src={banner}
                   alt="Banner"
-                  className="w-full h-full object-cover"
+                  objectFit="cover"
+                  className="w-full h-full"
                 />
               </div>
             );

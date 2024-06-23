@@ -32,14 +32,12 @@ export function SideMenu() {
     },
   ];
 
-  console.log(allBooksIsOpen);
-
   return (
     <div className="min-w-[241px] pb-4">
       <div className="fixed min-w-[241px] h-screen flex flex-col gap-6 bg-white">
         <Link href="/inicio">
           <div className="p-4 border-b-[1px] border-b-[#E1E6EE] cursor-pointer">
-            <Image src={logo} alt="Logo TheLibrary" />
+            <Image src={logo} alt="Logo TheLibrary" objectFit="cover" />
           </div>
         </Link>
         <div className="w-full absolute bottom-0 flex justify-between items-center px-4 py-4 border-t-[1px] border-t-[#E1E6EE]">
@@ -68,8 +66,8 @@ export function SideMenu() {
             <h3 className="text-sm font-bold">Notificações</h3>
           </div>
           <div
-            data-isOpen={allBooksIsOpen}
-            className={`h-[36px] data-[isOpen=true]:h-[172px] flex flex-col gap-2 overflow-hidden cursor-pointer [&>svg]:data-[isOpen=true]:rotate-180 transition-all`}
+            data-open={allBooksIsOpen}
+            className={`h-[36px] data-[open=true]:h-[172px] flex flex-col gap-2 overflow-hidden cursor-pointer [&>svg]:data-[open=true]:rotate-180 transition-all`}
           >
             <div
               onClick={() => setAllBooksIsOpen(!allBooksIsOpen)}
@@ -78,8 +76,8 @@ export function SideMenu() {
               <div className="flex gap-[6px] items-center">
                 <BooksIcon />
                 <h3
-                  data-isOpen={allBooksIsOpen}
-                  className="text-sm font-bold data-[isOpen=true]:text-yellow-main"
+                  data-open={allBooksIsOpen}
+                  className="text-sm font-bold data-[open=true]:text-yellow-main"
                 >
                   Todos Livros
                 </h3>
@@ -91,9 +89,9 @@ export function SideMenu() {
               />
             </div>
             <div className="ml-1 pl-4 flex flex-col gap-1">
-              {sub_categories.map((category) => {
+              {sub_categories.map((category, idx) => {
                 return (
-                  <Link href={category.url} key={category.name}>
+                  <Link key={idx} href={category.url}>
                     <p className="py-1 pl-5 rounded-[8px] hover:bg-gray-hover hover:text-yellow-main text-sm">
                       {category.name}
                     </p>

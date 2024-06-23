@@ -10,16 +10,16 @@ export function XIcon() {
       <path
         d="M15.75 5.25L5.25 15.75"
         stroke="black"
-        stroke-width="1.75"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M5.25 5.25L15.75 15.75"
         stroke="black"
-        stroke-width="1.75"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

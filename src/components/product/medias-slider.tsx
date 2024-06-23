@@ -15,8 +15,6 @@ export function MediaSlider({ medias }: { medias: any[] }) {
     },
   });
 
-  console.log(sliderControl);
-
   return (
     <div className="flex flex-col gap-2 w-full">
       <div ref={sliderRef} className="keen-slider flex w-full overflow-hidden">
@@ -40,6 +38,7 @@ export function MediaSlider({ medias }: { medias: any[] }) {
         {medias.map((media, idx) => {
           return (
             <div
+              key={idx}
               data-active={currentIdx == idx}
               className="data-[active=true]:border-[3px] data-[active=true]:border-green-main rounded-md cursor-pointer"
               onClick={() => sliderControl.current?.moveToIdx(idx)}

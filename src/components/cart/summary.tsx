@@ -9,15 +9,11 @@ export function CartSummary() {
     <div className="w-full flex flex-col gap-2 p-4 border border-[#E1E6EE] rounded-[10px]">
       {info.map((item, idx) => {
         return (
-          <div
-            key={idx}
-            data-isTotal={item.title == "Total"}
-            className="flex justify-between items-center"
-          >
+          <div key={idx} className="flex justify-between items-center">
             <p className="text-xs">{item.title}</p>
             <p
-              data-isTotal={item.title == "Total"}
-              className="text-xs font-bold data-[isTotal=true]:text-green-main"
+              data-total={item.title == "Total"}
+              className="text-xs font-bold data-[total=true]:text-green-main"
             >
               {item.value}
             </p>

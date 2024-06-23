@@ -53,13 +53,11 @@ export function CategoriesFilter({
 
   const [activeCategory, setActiveCategory] = useState(getInitialIdx());
 
-  console.log;
-
   return (
     <div className="w-full flex justify-center items-center gap-[10px] ">
       {categories.map((category, idx) => {
         return (
-          <Link href={`/categoria/${getParamName(category.name)}`}>
+          <Link key={idx} href={`/categoria/${getParamName(category.name)}`}>
             <div
               onClick={() => setActiveCategory(idx)}
               data-active={activeCategory == idx}

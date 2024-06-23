@@ -18,7 +18,7 @@ export default function SignInPage() {
               Entre com sua conta para utilizar a plataforma
             </h3>
           </div>
-          <Image src={imgSignin} alt="Imagem de bem-vindo" />
+          <Image src={imgSignin} alt="Imagem de bem-vindo" objectFit="cover" />
         </div>
       </div>
     </main>

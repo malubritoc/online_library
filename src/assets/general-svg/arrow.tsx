@@ -11,9 +11,9 @@ export function ArrowIcon({ className }: { className?: string }) {
       <path
         d="M1.25 8.5L4.75 5L1.25 1.5"
         stroke="black"
-        stroke-width="1.16667"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.16667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

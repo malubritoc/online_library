@@ -31,8 +31,8 @@ export function ProductSection({
         )}
       </div>
       <div className="flex gap-4 justify-between">
-        {products.map((product, index) => (
-          <ProductCard key={index} />
+        {products.map((product, idx) => (
+          <ProductCard key={idx} />
         ))}
       </div>
     </div>

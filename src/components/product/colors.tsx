@@ -28,6 +28,7 @@ export function ProductColors() {
         {colors.map((color, idx) => {
           return (
             <div
+              key={idx}
               data-selected={selectedColor == idx}
               onClick={() => setSelectedColor(idx)}
               style={{ backgroundColor: color }}

@@ -10,16 +10,16 @@ export function ArrowsProfile() {
       <path
         d="M3.25 8.6665L6.5 11.9165L9.75 8.6665"
         stroke="black"
-        stroke-width="1.625"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.625"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M9.75 4.3335L6.5 1.0835L3.25 4.3335"
         stroke="black"
-        stroke-width="1.625"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.625"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
