@@ -1,4 +1,3 @@
-import { ProductType } from "@/@types/Product";
 import { Parser } from "@/services/parser";
 import clsx from "clsx";
 import { useState } from "react";

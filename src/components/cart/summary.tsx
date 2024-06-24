@@ -1,10 +1,12 @@
 import { useAtom } from "jotai";
 import { OrderProductType, cartAtom } from "@/atoms/cartAtom";
 import { Parser } from "@/services/parser";
-import { useEffect } from "react";
+import { use, useEffect, useState } from "react";
 
 export function CartSummary() {
   const [values, setValues] = useAtom(cartAtom);
+  const [subtotal, setSubtotal] = useState(0);
+  const [totalQty, setTotalQty] = useState(0);
 
   function getSubtotal(products: OrderProductType[]) {
     return values.products.reduce((acc, product) => {
@@ -24,6 +26,12 @@ export function CartSummary() {
       total_price: getSubtotal(values.products) + values.delivery_price,
     });
   }, []);
+
+  useEffect(() => {
+    console.log("mudou");
+    setSubtotal(getSubtotal(values.products));
+    setTotalQty(getTotalQty(values.products));
+  }, [values]);
 
   const info = [
     {

@@ -6,12 +6,24 @@ import { useAtom } from "jotai";
 import { formFieldsProductCartItem } from "@/atoms/cartAtom";
 
 export function Counter({ initialQuantity }: { initialQuantity: number }) {
-  const [quantity, setQuantity] = useState(initialQuantity);
+  const [quantity, setQuantity] = useState<number>(initialQuantity);
   const [values, setValues] = useAtom(formFieldsProductCartItem);
 
   useEffect(() => {
     setValues({ product_quantity: quantity });
-  }, [quantity]);
+  }, [quantity, setValues]);
+
+  useEffect(() => {
+    setQuantity(initialQuantity);
+  }, [initialQuantity]);
+
+  function updateQuantity(value: number) {
+    if (value < initialQuantity) {
+      setQuantity(initialQuantity);
+    } else {
+      setQuantity(value);
+    }
+  }
 
   return (
     <div
@@ -21,11 +33,9 @@ export function Counter({ initialQuantity }: { initialQuantity: number }) {
       )}
     >
       <button
-        onClick={() =>
-          setQuantity(
-            quantity > initialQuantity ? quantity - 1 : initialQuantity
-          )
-        }
+        data-available={quantity > initialQuantity}
+        className="[&>svg>path]:data-[available=false]:hidden"
+        onClick={() => updateQuantity(quantity - 1)}
       >
         <MinusIcon />
       </button>
@@ -34,10 +44,19 @@ export function Counter({ initialQuantity }: { initialQuantity: number }) {
         className="w-10 text-center bg-transparent"
         type="number"
         onChange={(e) => {
-          setQuantity(parseInt(e.target.value));
+          const newValue = parseInt(e.target.value, 10);
+          if (!isNaN(newValue)) {
+            updateQuantity(newValue);
+          }
+        }}
+        onBlur={(e) => {
+          const newValue = parseInt(e.target.value, 10);
+          if (!isNaN(newValue) && newValue < initialQuantity) {
+            updateQuantity(initialQuantity);
+          }
         }}
       />
-      <button onClick={() => setQuantity(quantity + 1)}>
+      <button onClick={() => updateQuantity(quantity + 1)}>
         <PlusIcon />
       </button>
     </div>
