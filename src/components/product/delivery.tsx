@@ -16,16 +16,17 @@ export function ProductDelivery({
   }[];
 }) {
   const [deliverySelected, setDeliverySelected] = useState(0);
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
   const [values, setValues] = useAtom(formFieldsCartItem);
 
   useEffect(() => {
     setValues({
       products: values.products,
       quantity: values.quantity,
-
-      delivery_price: 0,
-      total_price: values.total_price + 0,
+      delivery_price: deliveryPrice,
+      total_price: values.total_price + deliveryPrice,
     });
+    console.log(values);
   }, [deliverySelected]);
 
   return (
@@ -38,7 +39,10 @@ export function ProductDelivery({
           <div
             key={idx}
             data-selected={deliverySelected === idx}
-            onClick={() => setDeliverySelected(idx)}
+            onClick={() => {
+              setDeliveryPrice(delivery.price);
+              setDeliverySelected(idx);
+            }}
             className={clsx(
               "flex justify-between items-center",
               "px-4 py-2 border border-[#ECECEC] rounded-[8px]",
