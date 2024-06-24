@@ -2,6 +2,14 @@
 
 Bem-vindo ao repositório do projeto da The Library! Este projeto foi desenvolvido utilizando diversas tecnologias e bibliotecas modernas para fornecer uma experiência de usuário rica e interativa.
 
+## Ambiente de produção
+
+Para visualizar a aplicação em produção, acesse:
+
+```bash
+   https://online-library-kappa-eight.vercel.app/
+```
+
 ## Tecnologias Utilizadas
 
 - **Next.js**: Framework React para construção de aplicações web.
@@ -9,7 +17,7 @@ Bem-vindo ao repositório do projeto da The Library! Este projeto foi desenvolvi
 - **TypeScript**: Superconjunto do JavaScript que adiciona tipagem estática.
 - **Firebase**: Utilização do serviço Firestore para banco de dados NoSql e serviços de API.
 
-### Bibliotecas 
+### Bibliotecas
 
 - **Jotai**: Utilizado como gerenciador de estado global.
 - **clsx**: Utilizado para melhorar a visualização da estilização com Tailwind CSS.
@@ -133,3 +141,7 @@ Outros testes de interação
 - Testar opção de Sign In no side menu (caso não esteja logado);
 - Testar clique em item do breadcrumbs na página de detalhes de um produto;
 - Testar botões da página de detalhes de um produto.
+
+## Melhorias pendentes
+
+-**Responsividae**: ⁠Criar design no figma pra versão mobile responsiva e respectiva implementação; -**Componentes de loading**: Adicionar componentes de loading a serem renderizados enquanto as requisições estão sendo processadas; -**Visualização de detalhes dos produtos no carrinho**: Possibilitar ao usuário visualizar demais dados sobre o produtos adicionados no carrinho, como variação e cor; -**Alteração de produtos no carrinho**: Possibilitar ao usuário alterar dados dos produtos já adicionados ao carrinho, como quantidade, variação e cor; -**Adicionar fluxos faltantes**: Criação e implementação de fluxos fundamentais aos objetivos de um e-commerce, como sign up, meus pedidos, cálculo de frete, etc.
