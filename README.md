@@ -40,7 +40,7 @@ Certifique-se de ter o Node.js e o npm instalados na sua máquina.
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/malubritoc/online-library.git
+   git clone https://github.com/malubritoc/online_library.git
    cd online-library
    ```
 
