@@ -10,5 +10,11 @@ export function getCategoryTitle(title: string) {
         return "Programação";
       case "culinaria":
         return "Culinária";
+      case "canecas":
+        return "Canecas";
+      case "promocoes":
+        return "Promoções";
+      case "acessorios":
+        return "Acessórios";
     }
   }

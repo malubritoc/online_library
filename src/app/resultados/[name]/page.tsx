@@ -7,24 +7,6 @@ import { ProductListPages } from "@/components/general/list-products";
 import { SearchResultPageProps } from "./interfaces";
 
 export default function SearchResultPage({ params }: SearchResultPageProps) {
-  const products = [
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-    { title: "Cem anos de solidão", price: 100 },
-  ];
-
   return (
     <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">
       <div className="max-w-6xl w-full flex gap-0 items-start overflow-hidden shadow-custom">
@@ -34,7 +16,7 @@ export default function SearchResultPage({ params }: SearchResultPageProps) {
         <div className="w-full h-full flex flex-col gap-12 px-8 pb-8 bg-gray-bg-screen">
           <Header />
           <SearchBar />
-          <ProductListPages products={products} />
+          <ProductListPages />
         </div>
       </div>
     </main>

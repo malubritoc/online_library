@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ArrowIcon } from "@/assets/product/arrow";
 import clsx from "clsx";
+import { useRouter } from "next/navigation";
 
 const cepFormSchema = z.object({
   cep: z
@@ -23,6 +24,8 @@ export function CepForm() {
   } = useForm<CepFormInputs>({
     resolver: zodResolver(cepFormSchema),
   });
+
+  const router = useRouter();
 
   function handleCep(data: CepFormInputs) {
     // console.log(data);
@@ -44,6 +47,7 @@ export function CepForm() {
           />
         </div>
         <button
+          onClick={() => router.push("/em-breve")}
           className={clsx(
             "px-3 py-2 border border-[#11131A] rounded-[8px]",
             "bg-[#11131A] hover:bg-opacity-80"
@@ -53,7 +57,10 @@ export function CepForm() {
         </button>
       </form>
       {errors.cep && <span className="">CEP inválido</span>}
-      <button className="text-sm underline self-start px-4">
+      <button
+        onClick={() => router.push("/em-breve")}
+        className="text-sm underline self-start px-4"
+      >
         Não sei meu cep
       </button>
     </div>

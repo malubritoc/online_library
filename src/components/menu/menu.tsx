@@ -19,15 +19,15 @@ export function SideMenu() {
     },
     {
       name: "Promoções",
-      url: "/resultados/promocoes",
+      url: "/em-breve",
     },
     {
       name: "Acessórios",
-      url: "/resultados/acessorios",
+      url: "/em-breve",
     },
     {
       name: "Canecas",
-      url: "/resultados/canecas",
+      url: "/em-breve",
     },
   ];
 

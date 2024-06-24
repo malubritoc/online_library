@@ -24,7 +24,7 @@ export function SearchForm() {
   });
 
   function handleSearch(data: SearchFormInputs) {
-    router.push(`/resultados/${data.param}`);
+    router.push("/em-breve");
   }
 
   return (
