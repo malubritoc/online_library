@@ -144,4 +144,8 @@ Outros testes de interação
 
 ## Melhorias pendentes
 
--**Responsividae**: ⁠Criar design no figma pra versão mobile responsiva e respectiva implementação; -**Componentes de loading**: Adicionar componentes de loading a serem renderizados enquanto as requisições estão sendo processadas; -**Visualização de detalhes dos produtos no carrinho**: Possibilitar ao usuário visualizar demais dados sobre o produtos adicionados no carrinho, como variação e cor; -**Alteração de produtos no carrinho**: Possibilitar ao usuário alterar dados dos produtos já adicionados ao carrinho, como quantidade, variação e cor; -**Adicionar fluxos faltantes**: Criação e implementação de fluxos fundamentais aos objetivos de um e-commerce, como sign up, meus pedidos, cálculo de frete, etc.
+-**Responsividade**: ⁠Criar design no figma pra versão mobile responsiva e respectiva implementação; 
+-**Componentes de loading**: Adicionar componentes de loading a serem renderizados enquanto as requisições estão sendo processadas; 
+-**Visualização de detalhes dos produtos no carrinho**: Possibilitar ao usuário visualizar demais dados sobre o produtos adicionados no carrinho, como variação e cor; 
+-**Alteração de produtos no carrinho**: Possibilitar ao usuário alterar dados dos produtos já adicionados ao carrinho, como quantidade, variação e cor; 
+-**Adicionar fluxos faltantes**: Criação e implementação de fluxos fundamentais aos objetivos de um e-commerce, como sign up, meus pedidos, cálculo de frete, etc.
