@@ -20,6 +20,15 @@ export function PurchaseButton() {
     });
   }
 
+  function cleanCart() {
+    setCartValues({
+      products: [],
+      quantity: 0,
+      delivery_price: 0,
+      total_price: 0,
+    });
+  }
+
   return (
     <div className="w-fit flex flex-col">
       <button
@@ -34,12 +43,20 @@ export function PurchaseButton() {
       >
         Finalizar Compra
       </button>
-      {!session && (
+
+      {!session ? (
         <p
           onClick={() => router.push("/signin")}
           className="text-gray-500 text-xs text-center underline p-2 cursor-pointer"
         >
           Faça login para finalizar a compra
+        </p>
+      ) : (
+        <p
+          onClick={() => cleanCart()}
+          className="text-gray-500 text-xs text-center underline p-2 cursor-pointer"
+        >
+          Limpar carrinho
         </p>
       )}
     </div>
