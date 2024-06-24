@@ -17,7 +17,7 @@ export function CartProduct({ product }: { product: OrderProductType }) {
         <p className="text-green-main font-bold">
           {Parser.currency(product.product_price)}
         </p>
-        <Counter />
+        <Counter initialQuantity={product.product_quantity} />
       </div>
     </div>
   );

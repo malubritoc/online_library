@@ -8,9 +8,15 @@ export function ProductsListCart() {
 
   return (
     <div className="w-full max-h-[250px] flex flex-col gap-2 overflow-y-scroll px-2">
-      {products.map((product, idx) => {
-        return <CartProduct key={idx} product={product} />;
-      })}
+      {products.length > 0 ? (
+        products.map((product, idx) => {
+          return <CartProduct key={idx} product={product} />;
+        })
+      ) : (
+        <div className="w-full flex justify-center">
+          <p>Seu carrinho está vazio</p>
+        </div>
+      )}
     </div>
   );
 }

@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { formFieldsProductCartItem } from "@/atoms/cartAtom";
 
-export function Counter() {
-  const [quantity, setQuantity] = useState(1);
+export function Counter({ initialQuantity }: { initialQuantity: number }) {
+  const [quantity, setQuantity] = useState(initialQuantity);
   const [values, setValues] = useAtom(formFieldsProductCartItem);
 
   useEffect(() => {
@@ -20,7 +20,13 @@ export function Counter() {
         "border border-[#45474F] rounded-[6px] text-gray-900"
       )}
     >
-      <button onClick={() => setQuantity(quantity - 1)}>
+      <button
+        onClick={() =>
+          setQuantity(
+            quantity > initialQuantity ? quantity - 1 : initialQuantity
+          )
+        }
+      >
         <MinusIcon />
       </button>
       <input

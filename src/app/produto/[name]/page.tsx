@@ -47,40 +47,33 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="">
           <SideMenu />
         </div>
-        <div className="w-full h-full flex flex-col gap-12 px-8 pb-8 bg-gray-bg-screen">
-          <div className="w-full h-full flex flex-col gap-6 px-8 pb-8 bg-gray-bg-screen">
-            <Header />
-            <ProductBreadcrumbs
-              name={product.name}
-              category={product.category}
-            />
-            <div className="flex"></div>
-            {product && (
-              <div className="flex gap-8 w-full h-full ">
-                <div className="flex w-[400px] w-full">
-                  <MediaSlider medias={product?.links_media} />
-                </div>
-                <div className="w-full flex flex-col gap-6">
-                  <ProductInfo
-                    name={product?.name}
-                    price={product?.price}
-                    description={product?.description}
-                    offer={product?.offer}
-                  />
-                  <ProductVariations
-                    variations={product?.available_variations}
-                  />
-                  <ProductColors colors={product?.available_colors} />
-                  <ProductQuantity minUnit={product?.min_unit} />
-                  <div className="flex flex-col gap-4">
-                    <AddProductButton product={product} />
-                    <WhatsappButton />
-                  </div>
-                  <ProductDelivery deliveryTypes={product?.delivery_options} />
-                </div>
+        <div className="w-full h-full flex flex-col gap-6 px-8 pb-8 bg-gray-bg-screen">
+          <Header />
+          <ProductBreadcrumbs name={product.name} category={product.category} />
+          <div className="flex"></div>
+          {product && (
+            <div className="flex gap-8 w-full h-full ">
+              <div className="flex w-[400px] w-full">
+                <MediaSlider medias={product?.links_media} />
               </div>
-            )}
-          </div>
+              <div className="w-full flex flex-col gap-6">
+                <ProductInfo
+                  name={product?.name}
+                  price={product?.price}
+                  description={product?.description}
+                  offer={product?.offer}
+                />
+                <ProductVariations variations={product?.available_variations} />
+                <ProductColors colors={product?.available_colors} />
+                <ProductQuantity minUnit={product?.min_unit} />
+                <div className="flex flex-col gap-4">
+                  <AddProductButton product={product} />
+                  <WhatsappButton />
+                </div>
+                <ProductDelivery deliveryTypes={product?.delivery_options} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </main>

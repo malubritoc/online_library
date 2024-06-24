@@ -7,7 +7,7 @@ export function CartSummary() {
 
   const info = [
     {
-      title: "Subtotal (2 produtos)",
+      title: `Subtotal (${values.products.length} produtos)`,
       value: Parser.currency(values.total_price - values.delivery_price),
     },
     { title: "Frete", value: Parser.currency(values.delivery_price) },
