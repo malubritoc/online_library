@@ -5,8 +5,9 @@ Bem-vindo ao repositório do projeto da The Library! Este projeto foi desenvolvi
 ## Tecnologias Utilizadas
 
 - **Next.js**: Framework React para construção de aplicações web.
+- **Tailwind**: Framework CSS para estilização de componentes.
 - **TypeScript**: Superconjunto do JavaScript que adiciona tipagem estática.
-- **Firebase**: Utilização do serviço Firestore para banco de dados NoSql e simulação de API.
+- **Firebase**: Utilização do serviço Firestore para banco de dados NoSql e serviços de API.
 
 ### Bibliotecas 
 
