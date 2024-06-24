@@ -1,18 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CepForm } from "../forms/cep";
 import clsx from "clsx";
 import { Parser } from "@/services/parser";
+import { formFieldsCartItem } from "@/atoms/cartAtom";
+import { useAtom } from "jotai";
+import { set } from "firebase/database";
 
 export function ProductDelivery({
   deliveryTypes,
 }: {
-  deliveryTypes?: {
+  deliveryTypes: {
     name: string;
     price: number;
     deadline: number;
   }[];
 }) {
   const [deliverySelected, setDeliverySelected] = useState(0);
+  const [values, setValues] = useAtom(formFieldsCartItem);
+
+  useEffect(() => {
+    setValues({
+      products: values.products,
+      quantity: values.quantity,
+
+      delivery_price: 0,
+      total_price: values.total_price + 0,
+    });
+    console.log("carrinho", values);
+  }, [deliverySelected]);
 
   return (
     <div className="flex flex-col gap-2">

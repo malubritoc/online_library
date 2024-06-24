@@ -1,10 +1,17 @@
 import { MinusIcon } from "@/assets/product/minus";
 import { PlusIcon } from "@/assets/product/plus";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { formFieldsProductCartItem } from "@/atoms/cartAtom";
 
 export function Counter() {
   const [quantity, setQuantity] = useState(1);
+  const [values, setValues] = useAtom(formFieldsProductCartItem);
+
+  useEffect(() => {
+    setValues({ product_quantity: quantity });
+  }, [quantity]);
 
   return (
     <div
@@ -19,9 +26,10 @@ export function Counter() {
       <input
         value={quantity}
         className="w-10 text-center bg-transparent"
-        min={1}
         type="number"
-        onChange={(e) => setQuantity(Number(e.target.value))}
+        onChange={(e) => {
+          setQuantity(parseInt(e.target.value));
+        }}
       />
       <button onClick={() => setQuantity(quantity + 1)}>
         <PlusIcon />

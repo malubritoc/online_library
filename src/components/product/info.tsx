@@ -18,11 +18,11 @@ export function ProductInfo({
       <div className="flex flex-col gap-1">
         <div className="flex gap-4 items-center">
           <h3 className="text-xl text-green-main font-bold">
-            R$ {offer ? Parser.currency(price * 0.8) : Parser.currency(price)}
+            {offer ? Parser.currency(price * 0.8) : Parser.currency(price)}
           </h3>
           {offer && (
             <span className="text-[#45474F] line-through">
-              R$ {Parser.currency(price)}
+              {Parser.currency(price)}
             </span>
           )}
         </div>

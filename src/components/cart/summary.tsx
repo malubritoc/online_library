@@ -1,8 +1,17 @@
+import { useAtom } from "jotai";
+import { cartAtom } from "@/atoms/cartAtom";
+import { Parser } from "@/services/parser";
+
 export function CartSummary() {
+  const [values, setValues] = useAtom(cartAtom);
+
   const info = [
-    { title: "Subtotal (2 produtos)", value: "R$ 100,00" },
-    { title: "Frete", value: "R$ 10,00" },
-    { title: "Total", value: "R$ 110,00" },
+    {
+      title: "Subtotal (2 produtos)",
+      value: Parser.currency(values.total_price - values.delivery_price),
+    },
+    { title: "Frete", value: Parser.currency(values.delivery_price) },
+    { title: "Total", value: Parser.currency(values.total_price) },
   ];
 
   return (

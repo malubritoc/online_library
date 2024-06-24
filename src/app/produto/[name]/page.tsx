@@ -67,7 +67,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                   <ProductColors colors={product?.available_colors} />
                   <ProductQuantity minUnit={product?.min_unit} />
                   <div className="flex flex-col gap-4">
-                    <AddProductButton />
+                    <AddProductButton product={product} />
                     <WhatsappButton />
                   </div>
                   <ProductDelivery deliveryTypes={product?.delivery_options} />
