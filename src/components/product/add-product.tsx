@@ -39,21 +39,23 @@ export function AddProductButton({ product }: AddProductButtonProps) {
 
   return (
     <>
-      <button
+      <div
         onClick={handleAddToCart}
-        className="flex p-2 justify-center gap-2 bg-black hover:bg-opacity-80 rounded-[8px]"
+        className="flex p-2 justify-center gap-2 bg-black hover:bg-opacity-80 rounded-[8px] cursor-pointer"
       >
         <BagIcon />
         <p className="text-white font-bold">Adicionar à sacola</p>
-      </button>
-      {added && (
-        <Toast
-          open={added}
-          setOpen={setAdded}
-          title="Produto adicionado ao carrinho"
-          description="O produto foi adicionado ao carrinho com sucesso!"
-        />
-      )}
+        <div className="w-0">
+          {added && (
+            <Toast
+              open={added}
+              setOpen={setAdded}
+              title="Produto adicionado ao carrinho"
+              description="O produto foi adicionado ao carrinho com sucesso!"
+            />
+          )}
+        </div>
+      </div>
     </>
   );
 }
