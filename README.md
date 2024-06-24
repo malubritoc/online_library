@@ -144,7 +144,7 @@ Outros testes de interação
 
 ## Melhorias pendentes
 
-- **Responsividade**: ⁠Criar design no figma pra versão mobile responsiva e respectiva implementação; 
+- **Responsividade**: Atualmente, a aplicação não está responsiva, portanto, uma melhoria identificada seria ⁠criar o design para uma versão mobile responsiva, bem como sua respectiva implementação; 
 - **Componentes de loading**: Adicionar componentes de loading a serem renderizados enquanto as requisições estão sendo processadas; 
 - **Visualização de detalhes dos produtos no carrinho**: Possibilitar ao usuário visualizar demais dados sobre o produtos adicionados no carrinho, como variação e cor; 
 - **Alteração de produtos no carrinho**: Possibilitar ao usuário alterar dados dos produtos já adicionados ao carrinho, como quantidade, variação e cor; 
