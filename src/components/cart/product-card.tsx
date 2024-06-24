@@ -8,7 +8,6 @@ export function CartProduct({ product }: { product: OrderProductType }) {
   return (
     <div className="w-full flex gap-8">
       <img
-        onClick={() => console.log("clicou")}
         src={product.product_link_media}
         alt="Imagem do produto"
         className="w-[100px] object-cover rounded-[8px]"

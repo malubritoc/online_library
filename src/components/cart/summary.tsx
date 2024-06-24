@@ -28,7 +28,6 @@ export function CartSummary() {
   }, []);
 
   useEffect(() => {
-    console.log("mudou");
     setSubtotal(getSubtotal(values.products));
     setTotalQty(getTotalQty(values.products));
   }, [values]);

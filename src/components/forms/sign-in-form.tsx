@@ -37,7 +37,6 @@ export function SignInForm() {
         router.push("/inicio");
         return true;
       } else {
-        console.log("entrouuu");
         setError("password", {
           message: "Usuário não encontrado. Verifique seus dados.",
         });
@@ -49,7 +48,6 @@ export function SignInForm() {
   async function handleSignIn(data: SignInFormInputs) {
     const user = await validateLogin(data);
     if (user) {
-      console.log("Login efetuado com sucesso");
       setValues({
         email: data.email,
         password: data.password,

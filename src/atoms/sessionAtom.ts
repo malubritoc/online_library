@@ -12,6 +12,6 @@ export const sessionAtomDefault = {
     active: false,
 };
 
-export const sessionAtom = atom<{}>(sessionAtomDefault);
+export const sessionAtom = atom<SessionType>(sessionAtomDefault);
 
 export const formFieldsSession = atom((get) => get(sessionAtom), (get, set, update: SessionType) => set(sessionAtom, {...get(sessionAtom), ...update}))
