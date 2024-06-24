@@ -6,7 +6,7 @@ Bem-vindo ao repositório do projeto da The Library! Este projeto foi desenvolvi
 
 - **Next.js**: Framework React para construção de aplicações web.
 - **TypeScript**: Superconjunto do JavaScript que adiciona tipagem estática.
-- **Firebase**: Utilização do serviço Firestore para banco de dados NoSql
+- **Firebase**: Utilização do serviço Firestore para banco de dados NoSql e simulação de API.
 
 ### Bibliotecas 
 
