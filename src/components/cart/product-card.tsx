@@ -1,10 +1,19 @@
-import Image from "next/image";
-import img_teste from "@/assets/sign-in-page/img-sign-in.png";
 import { Counter } from "../product/counter";
 import { OrderProductType } from "@/atoms/cartAtom";
 import { Parser } from "@/services/parser";
+import { useAtom } from "jotai";
+import { cartAtom } from "@/atoms/cartAtom";
 
 export function CartProduct({ product }: { product: OrderProductType }) {
+  const [values, setValues] = useAtom(cartAtom);
+
+  function removeProduct() {
+    const newProducts = values.products.filter(
+      (p) => p.product_id !== product.product_id
+    );
+    setValues({ ...values, products: newProducts });
+  }
+
   return (
     <div className="w-full flex gap-8">
       <img
@@ -17,7 +26,16 @@ export function CartProduct({ product }: { product: OrderProductType }) {
         <p className="text-green-main font-bold">
           {Parser.currency(product.product_price)}
         </p>
-        <Counter initialQuantity={product.product_quantity} />
+        <p className="text-xs text-gray-500">
+          {product.product_quantity} unidades
+        </p>
+        <p
+          onClick={() => removeProduct()}
+          className="text-xs text-gray-500 underline cursor-pointer"
+        >
+          Excluir
+        </p>
+        {/* <Counter initialQuantity={product.product_quantity} /> */}
       </div>
     </div>
   );
