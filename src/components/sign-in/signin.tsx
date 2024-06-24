@@ -2,11 +2,14 @@ import logo from "../../assets/logo.png";
 import Image from "next/image";
 import { SignInForm } from "../forms/sign-in-form";
 import clsx from "clsx";
+import Link from "next/link";
 
 export function SignInComponent() {
   return (
     <div className="flex flex-col items-center gap-6">
-      <Image src={logo} alt="Logo TheLibrary" objectFit="cover" />
+      <Link href="/inicio" className="cursor-pointer">
+        <Image src={logo} alt="Logo TheLibrary" objectFit="cover" />
+      </Link>
       <div
         className={clsx(
           "min-w-[447px] flex flex-col items-center gap-5",

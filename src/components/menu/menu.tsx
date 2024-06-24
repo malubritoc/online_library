@@ -10,8 +10,11 @@ import Link from "next/link";
 import { ArrowsProfile } from "@/assets/side-menu/arrows-profile";
 import clsx from "clsx";
 import avatar from "@/assets/avatar.jpeg";
+import { sessionAtom } from "@/atoms/sessionAtom";
+import { useAtom } from "jotai";
 
 export function SideMenu() {
+  const [values, setValues] = useAtom(sessionAtom);
   const [allBooksIsOpen, setAllBooksIsOpen] = useState(false);
   const sub_categories = [
     {
@@ -130,27 +133,40 @@ export function SideMenu() {
             </div>
           </Link>
         </div>
-        <Link href="/em-breve">
-          <div
-            className={clsx(
-              "w-full absolute bottom-0 flex justify-between items-center",
-              "px-4 py-4 border-t-[1px] border-t-[#E1E6EE]"
-            )}
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full overflow-hidden">
-                <Image
-                  src={avatar}
-                  alt="Imagem de perfil"
-                  objectFit="cover"
-                  className="object-cover"
-                />
+        {values.active ? (
+          <Link href="/em-breve">
+            <div
+              className={clsx(
+                "w-full absolute bottom-0 flex justify-between items-center",
+                "px-4 py-4 border-t-[1px] border-t-[#E1E6EE]"
+              )}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full overflow-hidden">
+                  <Image
+                    src={avatar}
+                    alt="Imagem de perfil"
+                    objectFit="cover"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="text-sm font-bold">Usuário Teste</p>
               </div>
-              <p className="text-sm font-bold">Usuário Teste</p>
+              <ArrowsProfile />
             </div>
-            <ArrowsProfile />
-          </div>
-        </Link>
+          </Link>
+        ) : (
+          <Link href="/signin">
+            <div
+              className={clsx(
+                "w-full absolute bottom-0 flex justify-between items-center",
+                "px-4 py-4 border-t-[1px] border-t-[#E1E6EE] cursor-pointer"
+              )}
+            >
+              <p className="text-sm text-gray-500 font-bold">Sign In</p>
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );
