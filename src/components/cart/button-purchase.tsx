@@ -2,15 +2,28 @@ import { useAtom } from "jotai";
 import { sessionAtom } from "@/atoms/sessionAtom";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
+import { cartAtom } from "@/atoms/cartAtom";
 
 export function PurchaseButton() {
+  const [cartValues, setCartValues] = useAtom(cartAtom);
   const [values, setValues] = useAtom(sessionAtom);
   const session = values.active;
   const router = useRouter();
 
+  function handlePurchase() {
+    router.push("/obrigado");
+    setCartValues({
+      products: [],
+      quantity: 0,
+      delivery_price: 0,
+      total_price: 0,
+    });
+  }
+
   return (
     <div className="w-fit flex flex-col">
       <button
+        onClick={() => handlePurchase()}
         disabled={!session}
         className={clsx(
           "w-full self-center",

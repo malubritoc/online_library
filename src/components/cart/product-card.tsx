@@ -3,16 +3,10 @@ import { OrderProductType } from "@/atoms/cartAtom";
 import { Parser } from "@/services/parser";
 import { useAtom } from "jotai";
 import { cartAtom } from "@/atoms/cartAtom";
+import { set } from "firebase/database";
 
 export function CartProduct({ product }: { product: OrderProductType }) {
   const [values, setValues] = useAtom(cartAtom);
-
-  function removeProduct() {
-    const newProducts = values.products.filter(
-      (p) => p.product_id !== product.product_id
-    );
-    setValues({ ...values, products: newProducts });
-  }
 
   return (
     <div className="w-full flex gap-8">
@@ -27,13 +21,8 @@ export function CartProduct({ product }: { product: OrderProductType }) {
           {Parser.currency(product.product_price)}
         </p>
         <p className="text-xs text-gray-500">
-          {product.product_quantity} unidades
-        </p>
-        <p
-          onClick={() => removeProduct()}
-          className="text-xs text-gray-500 underline cursor-pointer"
-        >
-          Excluir
+          {product.product_quantity}{" "}
+          {product.product_quantity == 1 ? "unidade" : "unidades"}
         </p>
         {/* <Counter initialQuantity={product.product_quantity} /> */}
       </div>
