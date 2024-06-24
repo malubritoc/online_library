@@ -5,7 +5,8 @@ import {
   formFieldsProductCartItem,
 } from "@/atoms/cartAtom";
 import { useAtom } from "jotai";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Toast } from "../toasts/toast";
 
 interface AddProductButtonProps {
   product: ProductType;
@@ -14,6 +15,7 @@ interface AddProductButtonProps {
 export function AddProductButton({ product }: AddProductButtonProps) {
   const [values, setValues] = useAtom(formFieldsCartItem);
   const [productCart, setProductCart] = useAtom(formFieldsProductCartItem);
+  const [added, setAdded] = useState(false);
 
   function handleAddToCart() {
     setValues({
@@ -32,15 +34,26 @@ export function AddProductButton({ product }: AddProductButtonProps) {
       delivery_price: values.delivery_price,
       total_price: values.total_price + product.price,
     });
+    setAdded(true);
   }
 
   return (
-    <button
-      onClick={handleAddToCart}
-      className="flex p-2 justify-center gap-2 bg-black hover:bg-opacity-80 rounded-[8px]"
-    >
-      <BagIcon />
-      <p className="text-white font-bold">Adicionar à sacola</p>
-    </button>
+    <>
+      <button
+        onClick={handleAddToCart}
+        className="flex p-2 justify-center gap-2 bg-black hover:bg-opacity-80 rounded-[8px]"
+      >
+        <BagIcon />
+        <p className="text-white font-bold">Adicionar à sacola</p>
+      </button>
+      {added && (
+        <Toast
+          open={added}
+          setOpen={setAdded}
+          title="Produto adicionado ao carrinho"
+          description="O produto foi adicionado ao carrinho com sucesso!"
+        />
+      )}
+    </>
   );
 }

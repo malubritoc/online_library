@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.6.0",
     "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-toast": "^1.2.1",
     "clsx": "^2.1.1",
     "feather-icons": "^4.29.2",
     "firebase": "^10.12.2",
