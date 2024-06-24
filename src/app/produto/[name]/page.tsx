@@ -12,17 +12,23 @@ import { AddProductButton } from "@/components/product/add-product";
 import { WhatsappButton } from "@/components/product/whatsapp-button";
 import { ProductDelivery } from "@/components/product/delivery";
 import { getProductById, getProducts } from "@/services/gets";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductType } from "@/@types/Product";
 import { ProductPageProps } from "./interfaces";
+import { useRouter } from "next/navigation";
 
 export default function ProductPage({ params }: ProductPageProps) {
   const [product, setProduct] = useState({} as ProductType);
+  const router = useRouter();
   const [loading, setLoading] = useState(true);
 
   function getProduct() {
     getProductById(params.name).then((response) => {
-      setProduct(response[0]);
+      if (response) {
+        setProduct(response[0]);
+      } else {
+        router.push("/404");
+      }
     });
   }
 

@@ -18,7 +18,6 @@ export default function HomePage() {
   useEffect(() => {
     getProducts().then((products) => {
       setProducts(products);
-      console.log(products);
     });
   }, []);
 

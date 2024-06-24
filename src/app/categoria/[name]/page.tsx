@@ -14,17 +14,10 @@ import { ProductType } from "@/@types/Product";
 import { CategoryPageProps } from "./interfaces";
 
 export default function CategoryPage({ params }: CategoryPageProps) {
-  const router = useRouter();
-
-  console.log(params.name);
-
   const [products, setProducts] = useState(Array<ProductType>);
-  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    console.log("oalaa");
     getProducts().then((data: any) => {
-      // console.log("aquii", data);
       setProducts(
         params.name === "todos"
           ? data
@@ -33,7 +26,6 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                 product.category.toLowerCase() === params.name.toLowerCase()
             )
       );
-      console.log(products);
     });
   }, []);
 

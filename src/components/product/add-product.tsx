@@ -14,10 +14,8 @@ interface AddProductButtonProps {
 export function AddProductButton({ product }: AddProductButtonProps) {
   const [values, setValues] = useAtom(formFieldsCartItem);
   const [productCart, setProductCart] = useAtom(formFieldsProductCartItem);
-  console.log(productCart.product_quantity);
 
   function handleAddToCart() {
-    console.log("cliquei");
     setValues({
       products: [
         ...values.products,
@@ -35,10 +33,6 @@ export function AddProductButton({ product }: AddProductButtonProps) {
       total_price: values.total_price + product.price,
     });
   }
-
-  useEffect(() => {
-    console.log("produtos na sacola", values.products);
-  }, [values]);
 
   return (
     <button

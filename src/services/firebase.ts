@@ -60,6 +60,6 @@ export async function getProduct(id: string) {
     });
     return data;
   } else {
-    throw new Error('Erro. Tente novamente mais tarde.');
+    return null;
   }
 }

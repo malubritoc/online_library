@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 export function MediaSlider({ medias }: { medias: any[] }) {
-  const [slides, setSlides] = useState<any[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
-  console.log(medias);
 
   const [sliderRef, sliderControl] = useKeenSlider<HTMLDivElement>({
     loop: false,
@@ -16,12 +14,6 @@ export function MediaSlider({ medias }: { medias: any[] }) {
       setCurrentIdx(slider.track.details.rel);
     },
   });
-  useEffect(() => {
-    setTimeout(() => {
-      console.log("acessou");
-      setSlides(medias), 1000;
-    });
-  }, [medias]);
 
   return medias?.length > 0 ? (
     <div className="flex flex-col gap-2 w-[400px] ">

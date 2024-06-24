@@ -26,7 +26,6 @@ export function ProductDelivery({
       delivery_price: 0,
       total_price: values.total_price + 0,
     });
-    console.log("carrinho", values);
   }, [deliverySelected]);
 
   return (
