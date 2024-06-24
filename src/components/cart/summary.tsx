@@ -1,14 +1,34 @@
 import { useAtom } from "jotai";
-import { cartAtom } from "@/atoms/cartAtom";
+import { OrderProductType, cartAtom } from "@/atoms/cartAtom";
 import { Parser } from "@/services/parser";
+import { useEffect } from "react";
 
 export function CartSummary() {
   const [values, setValues] = useAtom(cartAtom);
 
+  function getSubtotal(products: OrderProductType[]) {
+    return values.products.reduce((acc, product) => {
+      return acc + product.product_price * product.product_quantity;
+    }, 0);
+  }
+
+  function getTotalQty(products: OrderProductType[]) {
+    return products.reduce((acc, product) => {
+      return acc + product.product_quantity;
+    }, 0);
+  }
+
+  useEffect(() => {
+    setValues({
+      ...values,
+      total_price: getSubtotal(values.products) + values.delivery_price,
+    });
+  }, []);
+
   const info = [
     {
-      title: `Subtotal (${values.products.length} produtos)`,
-      value: Parser.currency(values.total_price - values.delivery_price),
+      title: `Subtotal (${getTotalQty(values.products)} produtos)`,
+      value: Parser.currency(getSubtotal(values.products)),
     },
     { title: "Frete", value: Parser.currency(values.delivery_price) },
     { title: "Total", value: Parser.currency(values.total_price) },

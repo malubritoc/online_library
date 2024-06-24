@@ -22,7 +22,7 @@ export function AddProductButton({ product }: AddProductButtonProps) {
         {
           product_id: product.id,
           product_name: product.name,
-          product_price: product.price,
+          product_price: product.offer ? product.price * 0.8 : product.price,
           product_quantity: productCart.product_quantity,
           product_link_media: product.links_media[0],
           product_additional_info: [],
