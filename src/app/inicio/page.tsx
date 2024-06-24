@@ -9,7 +9,7 @@ import { SideMenu } from "@/components/menu/menu";
 import { SecondaryBanner } from "@/components/home/secondary-banner";
 import { SortButton } from "@/components/general/button-sort";
 import { useEffect, useState } from "react";
-import { getProducts, getUsers } from "@/services/gets";
+import { getProducts, getUsers } from "@/services/getsData";
 import { ProductType } from "@/@types/Product";
 
 export default function HomePage() {

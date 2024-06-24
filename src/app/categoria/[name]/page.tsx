@@ -8,7 +8,7 @@ import { CategoryTitle } from "@/components/category/category-title";
 import { CategoriesFilter } from "@/components/general/categories";
 import { ProductListPages } from "@/components/general/list-products";
 import { useEffect, useState } from "react";
-import { getProducts } from "@/services/gets";
+import { getProducts } from "@/services/getsData";
 import { ProductType } from "@/@types/Product";
 import { CategoryPageProps } from "./interfaces";
 import { useRouter } from "next/navigation";

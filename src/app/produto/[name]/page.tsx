@@ -11,7 +11,7 @@ import { ProductQuantity } from "@/components/product/quantity";
 import { AddProductButton } from "@/components/product/add-product";
 import { WhatsappButton } from "@/components/product/whatsapp-button";
 import { ProductDelivery } from "@/components/product/delivery";
-import { getProductById, getProducts } from "@/services/gets";
+import { getProductById, getProducts } from "@/services/getsData";
 import { useEffect, useState } from "react";
 import { ProductType } from "@/@types/Product";
 import { ProductPageProps } from "./interfaces";
@@ -27,7 +27,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       if (response) {
         setProduct(response[0]);
       } else {
-        router.push("/404");
+        router.push("/nao-encontrado");
       }
     });
   }

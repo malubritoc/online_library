@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
-
-const session = true; 
+const session = false;
 
 const nextConfig = {
 
