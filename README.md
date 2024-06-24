@@ -10,7 +10,7 @@ Bem-vindo ao repositório do projeto da The Library! Este projeto foi desenvolvi
 
 ### Bibliotecas 
 
-- **Jotai**: Utilizado como gerenciador de estado.
+- **Jotai**: Utilizado como gerenciador de estado global.
 - **clsx**: Utilizado para melhorar a visualização da estilização com Tailwind CSS.
 - **Zod**: Utilizado para criar esquemas de formulários.
 - **Radix**: Utilizado para criar o modal do carrinho.
