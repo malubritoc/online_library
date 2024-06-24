@@ -6,7 +6,10 @@ Bem-vindo ao repositório do projeto da The Library! Este projeto foi desenvolvi
 
 - **Next.js**: Framework React para construção de aplicações web.
 - **TypeScript**: Superconjunto do JavaScript que adiciona tipagem estática.
-- **Firebase**: Utilizado para simular o backend e fornecer dados dinâmicos.
+- **Firebase**: Utilização do serviço Firestore para banco de dados NoSql
+
+### Bibliotecas 
+
 - **Jotai**: Utilizado como gerenciador de estado.
 - **clsx**: Utilizado para melhorar a visualização da estilização com Tailwind CSS.
 - **Zod**: Utilizado para criar esquemas de formulários.
