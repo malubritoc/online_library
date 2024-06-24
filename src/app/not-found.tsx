@@ -7,7 +7,9 @@ export default function NotFound() {
     <main className="w-screen min-h-screen flex justify-center bg-[#f5f5f5]">
       <div className="max-w-6xl w-full flex gap-0 items-start overflow-hidden shadow-custom">
         <div className="w-full h-full flex flex-col items-center justify-center gap-6 bg-gray-bg-screen">
-          <Image src={logo} alt="Logo TheLibrary" />
+          <Link href="/inicio">
+            <Image src={logo} alt="Logo TheLibrary" />
+          </Link>
           <div className="w-[500px] h-[500px] flex flex-col items-center justify-center gap-8 p-12 rounded-full bg-green-main">
             <div className="flex flex-col gap-1">
               <h1 className="text-6xl font-bold text-yellow-main text-center">

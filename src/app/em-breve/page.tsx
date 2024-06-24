@@ -13,7 +13,9 @@ export default function Soon() {
             "bg-gray-bg-screen"
           )}
         >
-          <Image src={logo} alt="Logo TheLibrary" />
+          <Link href="/inicio">
+            <Image src={logo} alt="Logo TheLibrary" />
+          </Link>
           <div
             className={clsx(
               "w-[500px] h-[500px]",
