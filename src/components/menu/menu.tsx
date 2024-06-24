@@ -9,6 +9,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowsProfile } from "@/assets/side-menu/arrows-profile";
 import clsx from "clsx";
+import avatar from "@/assets/avatar.jpeg";
 
 export function SideMenu() {
   const [allBooksIsOpen, setAllBooksIsOpen] = useState(false);
@@ -137,15 +138,15 @@ export function SideMenu() {
             )}
           >
             <div className="flex items-center gap-3">
-              <Image
-                src={logo}
-                alt="Imagem de perfil"
-                width={27}
-                height={27}
-                objectFit="cover"
-                className="rounded-full"
-              />
-              <p className="text-sm font-bold">Menino Feliz</p>
+              <div className="w-8 h-8 rounded-full overflow-hidden">
+                <Image
+                  src={avatar}
+                  alt="Imagem de perfil"
+                  objectFit="cover"
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-sm font-bold">Usuário Teste</p>
             </div>
             <ArrowsProfile />
           </div>
