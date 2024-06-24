@@ -2,8 +2,12 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { CartDialog } from "../dialogs/cartDialog";
 import { BagIcon } from "@/assets/general-svg/bag";
 import clsx from "clsx";
+import { useAtom } from "jotai";
+import { cartAtom } from "@/atoms/cartAtom";
 
 export function Header() {
+  const [values, setValues] = useAtom(cartAtom);
+
   return (
     <div
       className={clsx(
@@ -14,8 +18,15 @@ export function Header() {
       <h1 className="text-[28px] font-bold">Todos Livros</h1>
       <Dialog.Root>
         <Dialog.Trigger>
-          <div className="px-4 cursor-pointer">
+          <div className="relative px-4 cursor-pointer">
             <BagIcon color="black" />
+            {values.quantity != 0 && (
+              <div className="absolute top-[-2px] right-[10px] w-3 h-3 flex items-center justify-center bg-green-main rounded-full">
+                <p className="text-[10px] text-white font-bold">
+                  {values.quantity}
+                </p>
+              </div>
+            )}
           </div>
         </Dialog.Trigger>
         <CartDialog />
